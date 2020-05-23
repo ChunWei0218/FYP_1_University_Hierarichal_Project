@@ -4,8 +4,6 @@
     </head>
 
 @extends('component/navbar.blade.php')
-@endcomponent
 
 @extends('component/foot.blade/php')
-@endcomponent
 </html>    

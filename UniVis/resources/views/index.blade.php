@@ -3,9 +3,9 @@
     <head>
     </head>
 
-@component('component/navbar.blade.php')
+@extends('component/navbar.blade.php')
 @endcomponent
 
-@componen('component/foot.blade/php')
+@extends('component/foot.blade/php')
 @endcomponent
 </html>    

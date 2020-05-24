@@ -1,5 +1,5 @@
 @extends('layouts.layouts')
 
 @section('content')
-    <h1>How to Use</h1>
+    <h1>Select Stuff</h1>
 @stop

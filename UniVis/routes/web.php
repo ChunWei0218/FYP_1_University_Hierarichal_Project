@@ -20,3 +20,20 @@ Route::get('/', function () {
 Route::get('index', function(){
     return View::make('index');
 });
+
+Route::get('faq', function(){
+    return View::make('faq');
+});
+
+Route::get('project_srch', function(){
+    return View::make('project_srch');
+});
+
+Route::get('university_srch', function(){
+    return View::make('university_srch');
+});
+
+Route::get('account', function(){
+    return View::make('account');
+});
+

@@ -1,66 +1,147 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>UniVis-Visualization Toolkit</title>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="/../css/mdb.min.css" rel="stylesheet">
+        <!-- Your custom styles (optional) -->
+        <link href="/../css/style.min.css" rel="stylesheet">
+        <style type="text/css">
+            @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #1C2331 !important;
+            }
+            }
+        </style>
     </head>
+
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">UniVis</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#Uni">Universities</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#Projects">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#FAQ">FAQ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#LogIn">Log In</a>
-                        </li>
-                    </ul>
-                </div>
+
+            <!-- Brand -->
+            <a class="navbar-brand" href="#" target="_blank">
+                <strong>TITLE</strong>
+            </a>
+
+            <!-- Collapse -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <!-- Left -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">
+                        Universities
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">
+                        Projects
+                        </a>
+                    </li>
+                        <li class="nav-item ">
+                        <a class="nav-link" href="#">
+                        FAQ
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i> Profile </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+                        <a class="dropdown-item" href="#">My account</a>
+                        <a class="dropdown-item" href="#">Log out</a>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
             </div>
         </nav>
+        <!-- Navbar -->
         @yield('content')
 
-        <footer>
-            <div class="col">
-                    <h4 class="text-white mb-5">Contacts</h4>
-                    <div>
-                        <i class="fas fa-phone fa-3x mb-12 text-white"></i>
-                        <a>014-6820038 call me maybe</a>
-                    </div>
-                    <div>
-                        <i class="fas fa-envelope fa-3x mb-12 text-white"></i>
-                        <a>yada@yada/com</a>
-                    </div>
+        <!--Footer-->
+        <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+            <hr class="my-4">
+
+            <!-- Social icons -->
+            <div class="pb-4">
+                <a href="" target="_blank">
+                    <i class="fab fa-facebook-f mr-3"></i>
+                </a>
+
+                <a href="" target="_blank">
+                    <i class="fab fa-twitter mr-3"></i>
+                </a>
+
+                <a href="" target="_blank">
+                    <i class="fab fa-youtube mr-3"></i>
+                </a>
+
+                <a href="" target="_blank">
+                    <i class="fab fa-google-plus-g mr-3"></i>
+                </a>
+
+                <a href="" target="_blank">
+                    <i class="fab fa-dribbble mr-3"></i>
+                </a>
+
+                <a href="" target="_blank">
+                    <i class="fab fa-pinterest mr-3"></i>
+                </a>
+
+                <a href="" target="_blank">
+                    <i class="fab fa-github mr-3"></i>
+                </a>
+
+                <a href="" target="_blank">
+                    <i class="fab fa-codepen mr-3"></i>
+                </a>
             </div>
+            <!-- Social icons -->
+
+            <!--Copyright-->
+            <div class="footer-copyright py-3">
+                © 2020 Copyright:
+                <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> website.com </a>
+            </div>
+            <!--/.Copyright-->
+
         </footer>
+        <!--/.Footer-->
         
-    <!-- script -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/jquery.timepicker.min.js"></script>
-    <script src="js/scrollax.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="js/google-map.js"></script>
-    <script src="js/main.js"></script>
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="../js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="../js/mdb.min.js"></script>
+    <!-- Initializations -->
+    <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+
+    </script>
     
     </body>
 

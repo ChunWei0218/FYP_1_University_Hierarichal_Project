@@ -17,23 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('index', function(){
-    return View::make('index');
+Route::get('/index', 'AppController@index');
+
+Route::get('/faq', function(){
+    return view('faq');
 });
 
-Route::get('faq', function(){
-    return View::make('faq');
+Route::get('/project_page', function(){
+    return view('project_page');
 });
 
-Route::get('project_srch', function(){
-    return View::make('project_srch');
+Route::get('/university_page', function(){
+    return view('university_page');
 });
-
-Route::get('university_srch', function(){
-    return View::make('university_srch');
-});
-
-Route::get('account', function(){
-    return View::make('account');
-});
-

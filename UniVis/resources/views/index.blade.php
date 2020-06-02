@@ -1,4 +1,4 @@
-@extends('layouts.layouts')
+@extends('layouts.layout')
 
 @section('content')
     <!-- Full Page Intro -->
@@ -33,7 +33,7 @@
         <div class="container">
             <div class="text-center mx-5 wow fadeIn">
                 <h1 class="mb-4">
-                <strong>About US</strong>
+                    <strong>About US</strong>
                 </h1>
             </div>
 
@@ -90,4 +90,4 @@
         </div>
     </main>
     <!--Main layout-->
-@stop
+@endsection

@@ -23,8 +23,8 @@ Route::get('/faq', function(){
     return view('faq');
 });
 
-Route::get('/project_page', function(){
-    return view('project_page');
+Route::get('/feedback', function(){
+    return view('feedback');
 });
 
 Route::get('/university_page', function(){

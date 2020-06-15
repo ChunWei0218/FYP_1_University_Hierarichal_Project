@@ -13,20 +13,20 @@
     <!-- Material Design Bootstrap -->
     <link href="/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="/css/neo4j/visualgraph.css" rel="stylesheet">
+    <link href="/css/visualgraph.css" rel="stylesheet">
     <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
-    <script src="/js/neo4j/visualgraph.js"></script>
+    <script src="/js/visualgraph.js"></script>
 </head>
 
 <body onload="draw()" class="grey lighten-3">
     
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark blue lighten-2">
+    <nav class="navbar navbar-expand-lg navbar-dark black scrolling-navbar">
         <div class="container">
 
             <!-- Brand -->
-            <a class="navbar-brand" href="#" target="_blank">
-                <strong>TITLE</strong>
+            <a class="navbar-brand" href="framework/index.html">
+                <img src="img/illogical%20ones" width="80px">
             </a>
 
             <!-- Collapse -->
@@ -41,18 +41,18 @@
                 <!-- Left -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">
-                        Universities
+                        <a class="nav-link" href="university.html">
+                            Universities
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">
-                        Projects
+                        <a class="nav-link" href="feedback.html">
+                            Feedback
                         </a>
                     </li>
                         <li class="nav-item ">
-                        <a class="nav-link" href="#">
-                        FAQ
+                        <a class="nav-link" href="faq.html">
+                            FAQ
                         </a>
                     </li>
                     <li class="nav-item dropdown">
@@ -60,11 +60,12 @@
                         aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user"></i> Profile </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item" href="#">My account</a>
-                        <a class="dropdown-item" href="#">Log out</a>
+                            <a class="dropdown-item" href="accountpage.html">My account</a>
+                            <a class="dropdown-item" href="#">Log out</a>
                         </div>
                     </li>
-                    </ul>
+                </ul>
+
             </div>
 
         </div>

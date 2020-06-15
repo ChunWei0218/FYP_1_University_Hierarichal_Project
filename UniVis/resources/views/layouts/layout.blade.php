@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
+    <title>UniVis-Visualization Toolkit</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -30,8 +30,8 @@
         <div class="container">
 
             <!-- Brand -->
-            <a class="navbar-brand" href="#" target="_blank">
-                <strong>TITLE</strong>
+            <a class="navbar-brand" href="index.html">
+                <img src="/img/illogical%20ones" width="80px">
             </a>
 
             <!-- Collapse -->
@@ -44,32 +44,32 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                 <!-- Left -->
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">
-                    Universities
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">
-                    Projects
-                    </a>
-                </li>
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                    <a class="nav-link" href="#">
-                    FAQ
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user"></i> Profile </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item" href="#">My account</a>
+                        <a class="nav-link" href="university.html">
+                        Universities
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="feedback.html">
+                        Feedback
+                        </a>
+                    </li>
+                        <li class="nav-item ">
+                        <a class="nav-link" href="faq.html">
+                        FAQ
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i> Profile </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+                        <a class="dropdown-item" href="../accountpage.html">My account</a>
                         <a class="dropdown-item" href="#">Log out</a>
-                    </div>
-                </li>
-            </ul>
+                        </div>
+                    </li>
+                </ul>
 
             </div>
 
@@ -132,18 +132,18 @@
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
-    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="/js/popper.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="/js/mdb.min.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
     <!-- Initializations -->
     <script type="text/javascript">
-            // Animations initialization
-            new WOW().init();
-
+        // Animations initialization
+        new WOW().init();
     </script>
 </body>
 

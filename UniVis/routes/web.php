@@ -34,3 +34,11 @@ Route::get('/feedback', array('as' => 'feedback', function(){
 Route::get('/university_page', array('as' => 'university', function(){
     return view('university_page');
 }));
+
+Route::get('/account_page', array('as' => 'account', function(){
+    return view('account_page');
+}));
+
+Route::get('/login', array('as' => 'login', function(){
+    return view('login');
+}));

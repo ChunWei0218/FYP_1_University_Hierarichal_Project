@@ -65,7 +65,7 @@
                         aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user"></i> Profile </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item" href="../accountpage.html">My account</a>
+                        <a class="dropdown-item" href="{{ route('account')}}">My account</a>
                         <a class="dropdown-item" href="#">Log out</a>
                         </div>
                     </li>

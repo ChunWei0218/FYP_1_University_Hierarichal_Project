@@ -19,14 +19,18 @@ Route::get('/', function () {
 
 Route::get('/index', 'AppController@index');
 
-Route::get('/faq', function(){
+Route::get('/index', array('as' => 'index', function(){
+    return view('index');
+}));
+
+Route::get('/faq', array('as' => 'faq', function(){
     return view('faq');
-});
+}));
 
-Route::get('/feedback', function(){
+Route::get('/feedback', array('as' => 'feedback', function(){
     return view('feedback');
-});
+}));
 
-Route::get('/university_page', function(){
+Route::get('/university_page', array('as' => 'university', function(){
     return view('university_page');
-});
+}));

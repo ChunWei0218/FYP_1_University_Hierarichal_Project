@@ -25,7 +25,7 @@
         <div class="container">
 
             <!-- Brand -->
-            <a class="navbar-brand" href="framework/index.html">
+            <a class="navbar-brand" href="{{ route('index')}}">
                 <img src="img/illogical%20ones" width="80px">
             </a>
 
@@ -41,18 +41,18 @@
                 <!-- Left -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" href="university.html">
-                            Universities
+                        <a class="nav-link" href="{{ route('university')}}">
+                        Universities
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="feedback.html">
-                            Feedback
+                        <a class="nav-link" href="{{ route('feedback')}}">
+                        Feedback
                         </a>
                     </li>
-                        <li class="nav-item ">
-                        <a class="nav-link" href="faq.html">
-                            FAQ
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{ route('faq')}}">
+                        FAQ
                         </a>
                     </li>
                     <li class="nav-item dropdown">

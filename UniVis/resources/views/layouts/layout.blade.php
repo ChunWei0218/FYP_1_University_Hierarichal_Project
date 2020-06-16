@@ -30,7 +30,7 @@
         <div class="container">
 
             <!-- Brand -->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{ route('index')}}">
                 <img src="/img/illogical%20ones" width="80px">
             </a>
 
@@ -46,17 +46,17 @@
                 <!-- Left -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" href="university.html">
+                        <a class="nav-link" href="{{ route('university')}}">
                         Universities
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="feedback.html">
+                        <a class="nav-link" href="{{ route('feedback')}}">
                         Feedback
                         </a>
                     </li>
                         <li class="nav-item ">
-                        <a class="nav-link" href="faq.html">
+                        <a class="nav-link" href="{{ route('faq')}}">
                         FAQ
                         </a>
                     </li>
@@ -139,7 +139,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
-    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
     <!-- Initializations -->
     <script type="text/javascript">
         // Animations initialization

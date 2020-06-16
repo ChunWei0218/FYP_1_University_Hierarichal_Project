@@ -16,7 +16,7 @@
                     <strong>We provide the all the information you need about Universities you're interested in about including the departments, projects, and also person that you would like to get in touch with. </strong>
                 </p>
 
-                <a href="http://my-neo4j-movies-app.herokuapp.com/" class="btn btn-outline-white btn-lg">Search
+                <a href="{{ route('university')}}" class="btn btn-outline-white btn-lg">Search
                 </a>
             </div>
             <!-- Content -->

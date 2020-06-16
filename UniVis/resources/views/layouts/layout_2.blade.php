@@ -22,7 +22,7 @@
         <div class="container">
 
             <!-- Brand -->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{ route('index')}}">
                 <img src="img/illogical%20ones" width="80px">
             </a>
 
@@ -38,17 +38,17 @@
                 <!-- Left -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" href="university.blade.php">
+                        <a class="nav-link" href="{{ route('university')}}">
                         Universities
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="feedback">
+                        <a class="nav-link" href="{{ route('feedback')}}">
                         Feedback
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="faq">
+                        <a class="nav-link" href="{{ route('faq')}}">
                         FAQ
                         </a>
                     </li>

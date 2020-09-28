@@ -42,3 +42,6 @@ Route::get('/account_page', array('as' => 'account', function(){
 Route::get('/login', array('as' => 'login', function(){
     return view('login');
 }));
+
+Route::get('/sendemail', 'SendEmailController@index');
+Route::post('/sendemail/send', 'SendEmailController@send');

@@ -16,24 +16,23 @@
                         <p class="h4 mb-4">Have something to tell us about?</p>
 
                         <!-- Name -->
-                        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
+                        <input type="text" id="defaultContactFormName" name="name" class="form-control mb-4" placeholder="Name">
 
                         <!-- Email -->
-                        <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
+                        <input type="email" id="defaultContactFormEmail" name="email" class="form-control mb-4" placeholder="E-mail">
 
                         <!-- Subject -->
                         <label>Subject</label>
-                        <select class="browser-default custom-select mb-4">
+                        <select name="subject" class="browser-default custom-select mb-4">
                             <option value="" disabled>Choose option</option>
                             <option value="1" selected>Feedback</option>
                             <option value="2">Report a bug</option>
                             <option value="3">Feature request</option>
-                            <option value="4">Feature request</option>
                         </select>
 
                         <!-- Message -->
                         <div class="form-group">
-                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+                            <textarea name="message" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
                         </div>
 
                         <!-- Copy -->
@@ -43,7 +42,7 @@
                         </div>
 
                         <!-- Send button -->
-                        <button class="btn btn-info btn-block" type="submit">Submit</button>
+                        <button class="btn btn-info btn-block" name="send" type="submit">Submit</button>
 
                     </form>
                     <!-- Default form contact -->

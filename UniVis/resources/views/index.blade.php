@@ -249,21 +249,26 @@
 
                             <!-- Name -->
                             <div class="md-form md-outline mt-0">
-                            <input type="text" id="name" class="form-control">
+                            <input type="text" name="name" id="name" class="form-control">
                             <label for="name">Your Name</label>
                             </div>
                             <!-- Email -->
                             <div class="md-form md-outline">
-                            <input type="text" id="email" class="form-control">
+                            <input type="text" name="email" id="email" class="form-control">
                             <label for="email">Your Email Address</label>
+                            </div>
+                            <!-- Subject -->
+                            <div class="md-form md-outline">
+                            <input type="text" name="subject" id="email" class="form-control">
+                            <label for="subject">Subject</label>
                             </div>
                             <!-- Message -->
                             <div class="md-form md-outline">
-                            <textarea id="message" class="md-textarea form-control" rows="3"></textarea>
+                            <textarea id="message" name="message" class="md-textarea form-control" rows="3"></textarea>
                             <label for="message">Your Message</label>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-md btn-block ml-0 mb-0">Submit inquiry</button>
+                            <button type="submit" name="send" class="btn btn-primary btn-md btn-block ml-0 mb-0">Submit inquiry</button>
 
                         </div>
                         </div>

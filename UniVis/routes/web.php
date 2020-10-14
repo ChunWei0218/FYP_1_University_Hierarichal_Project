@@ -13,15 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/index', 'AppController@index');
-
-Route::get('/index', array('as' => 'index', function(){
+//Route::get('/', [App\Http\Controllers\PagesController::class, 'index']);
+//Route::get('/faq', 'PagesController@faq');
+//Route::get('/university', 'PagesController@university');
+Route::get('/', array('as' => 'index', function(){
     return view('index');
 }));
+
+//Route::get('/faq', function(){
+//    return view('faq');
+//});
 
 Route::get('/faq', array('as' => 'faq', function(){
     return view('faq');
@@ -39,6 +40,6 @@ Route::get('/account_page', array('as' => 'account', function(){
     return view('account_page');
 }));
 
-Route::get('/login', array('as' => 'login', function(){
-    return view('login');
-}));
+Auth::routes();
+
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);

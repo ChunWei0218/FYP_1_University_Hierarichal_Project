@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-function MovieCast(name, title) {
+function EmployeeProj(name, title) {
     _.extend(this, {
         name: name,
         title: title.map(function(c) {
@@ -9,4 +9,4 @@ function MovieCast(name, title) {
     });
 }
 
-module.exports = MovieCast;
+module.exports = EmployeeProj;

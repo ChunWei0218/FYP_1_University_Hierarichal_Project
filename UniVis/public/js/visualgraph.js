@@ -1,21 +1,18 @@
 function draw() {
     var config = {
         container_id: "viz",
-        server_url: "bolt://18.233.63.181:33780",
+        server_url: "bolt://54.144.136.36:33153",
         server_user: "neo4j",
-        server_password: "erasers-platform-admiralties",
+        server_password: "proficiencies-expiration-storm",
         labels: {
-            "SUPERVISOR": {
-                caption: "FirstName",
-            },
             "EMPLOYEE": {
-                caption: "FirstName",
+                caption: "name",
             },
             "PROJECT": {
-                caption: "Name",
+                caption: "title",
             },
             "DEPARTMENT": {
-                caption: "Name",
+                caption: "name",
             },
             "UNIVERSITY": {
                 caption: "Name",
@@ -35,7 +32,7 @@ function draw() {
                 caption: true,
             }
         },
-        initial_cypher: "MATCH p=(:SUPERVISOR)<-[:SUPERVISED]-(:EMPLOYEE)-[:INCHARGE_OF]->(:PROJECT)<-[:CONTROL]-(:DEPARTMENT)<-[:HAVE]-(:UNIVERSITY) RETURN p"
+        initial_cypher: "MATCH p=()-->() RETURN p"
     }
 
     var viz = new NeoVis.default(config);

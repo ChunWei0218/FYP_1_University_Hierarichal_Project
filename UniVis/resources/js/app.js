@@ -23,7 +23,7 @@ $(function() {
 //                 $list.append($("<li>" + employee.name + "also participate in this project </li>"));
 //             });
 //         }, "json");
-// }
+// }    
 
 function search() {
     var query = $("#search").find("input[name=search]").val();

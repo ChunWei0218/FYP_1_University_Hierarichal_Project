@@ -1,4 +1,4 @@
-require('file?name=[name].[ext]!../node_modules/neo4j-driver/lib/browser/neo4j-web.min.js');
+require('file?name=[name].[ext]!../../node_modules/neo4j-driver/lib/browser/neo4j-web.min.js');
 var Employee = require('./models/Employee');
 var EmployeeProj = require('./models/EmployeeProj');
 var _ = require('lodash');

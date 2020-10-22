@@ -17407,7 +17407,7 @@ function renderGraph() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module 'file?name=[name].[ext]!../node_modules/neo4j-driver/lib/browser/neo4j-web.min.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module 'file?name=[name].[ext]!../../node_modules/neo4j-driver/lib/browser/neo4j-web.min.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 var Employee = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './models/Employee'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 

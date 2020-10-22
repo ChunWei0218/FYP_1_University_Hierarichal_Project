@@ -62,7 +62,7 @@
                     @endif
                     @else
                     <li class="nav-item">
-                        <a class="nav-link" href="">Edit</a>
+                        <a class="nav-link" href="https://10-0-1-244-33154.neo4jsandbox.com/browser/">Edit</a>
                     </li>
 
                     <li class="nav-item dropdown">

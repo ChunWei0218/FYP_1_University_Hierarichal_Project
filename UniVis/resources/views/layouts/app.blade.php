@@ -61,7 +61,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="">{{ __('Edit') }}</a>
+                                <a class="nav-link" href="">Edit</a>
                             </li>
                             
                             <li class="nav-item dropdown">

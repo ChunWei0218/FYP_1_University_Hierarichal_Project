@@ -51,7 +51,7 @@
                         <label for="form-Subject">Your contact number</label>
                     </div>
                     <div class="text-center">
-                        <button class="btn btn-dark">Update</button>
+                        <button href="{{action('AccountController@edit', $row['id'])}}" class="btn btn-dark">Update</button>
                     </div>
                 </div>
             </div>

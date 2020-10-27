@@ -20,18 +20,15 @@
                     <!-- Body -->
                     <div class="md-form">
                         <i class="fas fa-user prefix grey-text"></i>
-                        <input type="text" id="form-name" class="form-control">
-                        <label for="form-name">Your name</label>
+                        <p id="name" for="form-name">Your name</p>
                     </div>
                     <div class="md-form">
                         <i class="fas fa-envelope prefix grey-text"></i>
-                        <input type="text" id="form-email" class="form-control">
-                        <label for="form-email">Your email</label>
+                        <p id="email" for="form-email">Your email</p>
                     </div>
                     <div class="md-form">
                         <i class="fas fa-phone prefix grey-text"></i>
-                        <input type="text" id="form-Subject" class="form-control">
-                        <label for="form-Subject">Your contact number</label>
+                        <p id="contact_num" for="form-Subject">Your contact number</p>
                     </div>
                     <!-- Fill in here -->
                     <h3 class="mt-2"><i class="fas fa-envelope"></i> Update Account Information:</h3>

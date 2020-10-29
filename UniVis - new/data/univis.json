@@ -1,0 +1,278 @@
+[{
+        "n": {
+            "identity": 0,
+            "labels": [
+                "UNIVERSITY"
+            ],
+            "properties": {
+                "name": "Curtin University"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 1,
+            "labels": [
+                "DEPARTMENT"
+            ],
+            "properties": {
+                "name": "Information Technology"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 2,
+            "labels": [
+                "PROJECT"
+            ],
+            "properties": {
+                "name": "AI",
+                "DateCreated": "01 MAR 2020"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 3,
+            "labels": [
+                "EMPLOYEE"
+            ],
+            "properties": {
+                "name": "Bryan Hon"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 4,
+            "labels": [
+                "UNIVERSITY"
+            ],
+            "properties": {
+                "name": "Swinburne University"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 5,
+            "labels": [
+                "DEPARTMENT"
+            ],
+            "properties": {
+                "name": "Marketing"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 6,
+            "labels": [
+                "PROJECT"
+            ],
+            "properties": {
+                "name": "Market Branding",
+                "DateCreated": "16 JUN 2020"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 7,
+            "labels": [
+                "EMPLOYEE"
+            ],
+            "properties": {
+                "name": "Then Chun Wei"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 8,
+            "labels": [
+                "EMPLOYEE"
+            ],
+            "properties": {
+                "name": "Dennis Ng"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 9,
+            "labels": [
+                "EMPLOYEE"
+            ],
+            "properties": {
+                "name": "Tesla Johnson"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 10,
+            "labels": [
+                "DEPARTMENT"
+            ],
+            "properties": {
+                "name": "Purchasing"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 11,
+            "labels": [
+                "PROJECT"
+            ],
+            "properties": {
+                "name": "Internation Trade"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 12,
+            "labels": [
+                "EMPLOYEE"
+            ],
+            "properties": {
+                "name": "Dabora Elsa"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 13,
+            "labels": [
+                "DEPARTMENT"
+            ],
+            "properties": {
+                "name": "Purchasing"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 14,
+            "labels": [
+                "PROJECT"
+            ],
+            "properties": {
+                "name": "Logistics Counter"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 15,
+            "labels": [
+                "EMPLOYEE"
+            ],
+            "properties": {
+                "name": "Kimmy Jimmel"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 16,
+            "labels": [
+                "DEPARTMENT"
+            ],
+            "properties": {
+                "name": "Human Resource Management"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 17,
+            "labels": [
+                "PROJECT"
+            ],
+            "properties": {
+                "name": "Recruitment Training"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 18,
+            "labels": [
+                "EMPLOYEE"
+            ],
+            "properties": {
+                "name": "Candy Jenner"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 19,
+            "labels": [
+                "DEPARTMENT"
+            ],
+            "properties": {
+                "name": "Accounting and Finance"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 20,
+            "labels": [
+                "PROJECT"
+            ],
+            "properties": {
+                "name": "Financial New"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 21,
+            "labels": [
+                "EMPLOYEE"
+            ],
+            "properties": {
+                "name": "Roger Hilward"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 22,
+            "labels": [
+                "DEPARTMENT"
+            ],
+            "properties": {
+                "name": "Accounting and Finance"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 23,
+            "labels": [
+                "PROJECT"
+            ],
+            "properties": {
+                "name": "Financial 2020"
+            }
+        }
+    },
+    {
+        "n": {
+            "identity": 24,
+            "labels": [
+                "EMPLOYEE"
+            ],
+            "properties": {
+                "name": "Raymond Dexter"
+            }
+        }
+    }
+]

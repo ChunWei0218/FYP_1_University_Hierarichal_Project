@@ -16,15 +16,10 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="/css/mdb.min.css" rel="stylesheet">
-
-
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="/css/vendor.css" />
     <link rel="stylesheet" href="/css/alchemy.css" />
     <link rel="stylesheet" href="/css/alchemy.min.css" />
-    <!-- <link rel="stylesheet" href="/css/alchemy-white.css" /> -->
-    <link rel="stylesheet" href="/css/vendor.css" />
-    <!-- <link rel="stylesheet" href="http://cdn.graphalchemist.com/alchemy.min.css"/> -->
     <!-- <link href="/css/customapp.css" rel="stylesheet"> -->
 
 </head>
@@ -123,10 +118,8 @@
     <script type="text/javascript" src="/js/alchemy.js"></script>
     <script type="text/javascript" src="/js/alchemy.min.js"></script>
     <script type="text/javascript" src="/js/alchemyconfig.js"></script>
-    <!-- <script type="text/javascript" src="http://cdn.graphalchemist.com/alchemy.min.js"></script> -->
-    <script type="text/javascript">
-        alchemy.begin(config)
-    </script>
+
+
 
 
 

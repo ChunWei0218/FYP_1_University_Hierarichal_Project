@@ -6,7 +6,9 @@
     "url": "http://github.com/graphalchemist/alchemy.git"
   },
   "homepage": "http://graphalchemist.github.io/Alchemy/",
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "^3.4.1"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-autoprefixer": "~0.5.0",

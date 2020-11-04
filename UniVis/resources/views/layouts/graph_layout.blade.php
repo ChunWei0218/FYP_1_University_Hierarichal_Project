@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>UniVis-Visualization Toolkit</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
     <!-- Firebase-->
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
@@ -20,7 +19,10 @@
     <link rel="stylesheet" href="/css/vendor.css" />
     <link rel="stylesheet" href="/css/alchemy.css" />
     <link rel="stylesheet" href="/css/alchemy.min.css" />
-    <!-- <link href="/css/customapp.css" rel="stylesheet"> -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="/css/customapp.css" rel="stylesheet">
+
 
 </head>
 
@@ -104,20 +106,20 @@
     @yield('content')
 
     <!-- SCRIPTS -->
-    <!-- JQuery -->
-    <script type="text/javascript" src="framework/js/jquery-3.4.1.min.js"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="framework/js/popper.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="framework/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="framework/js/mdb.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
     <script type="text/javascript" src="https://d3js.org/d3.v6.min.js"></script>
-    <script type="text/javascript" src="/js/vendor.js"></script>
-    <script type="text/javascript" src="/js/alchemy.js"></script>
-    <script type="text/javascript" src="/js/alchemy.min.js"></script>
-    <script type="text/javascript" src="/js/alchemyconfig.js"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- Alchemy -->
+    <script type="text/javascript" src="js/vendor.js"></script>
+    <script type="text/javascript" src="js/alchemy.js"></script>
+    <script type="text/javascript" src="js/alchemy.min.js"></script>
+    <script type="text/javascript" src="js/alchemyconfig.js"></script>
 
 
 

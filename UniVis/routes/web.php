@@ -40,6 +40,22 @@ Route::get('/account_page', array('as' => 'account', function(){
     return view('account_page');
 }));
 
+Route::get('/university_inserttable_page', array('as' => 'university_insert_table', function(){
+    return view('university_inserttable_page');
+}));
+
+Route::get('/university_code', array('as' => 'university_code', function(){
+    return view('university_code');
+}));
+
+Route::get('/university_table_page', array('as' => 'university_table', function(){
+    return view('university_table_page');
+}));
+
+Route::get('/university_edittable_page', array('as' => 'university_edit_table', function(){
+    return view('university_edittable_page');
+}));
+
 Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);

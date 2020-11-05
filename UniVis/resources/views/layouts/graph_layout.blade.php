@@ -119,7 +119,48 @@
     <script type="text/javascript" src="js/vendor.js"></script>
     <script type="text/javascript" src="js/alchemy.js"></script>
     <script type="text/javascript" src="js/alchemy.min.js"></script>
-    <script type="text/javascript" src="js/alchemyconfig.js"></script>
+    <!-- <script type="text/javascript" src="js/alchemyconfig.js"></script> -->
+    <script type="text/javascript">
+    var config = {
+    dataSource: "data/UniVis.json",
+    cluster: true,
+    clusterColours: ["#DD79FF", "#00FF30", "#5168FF", "#f83f00", "#ff8d8f"],
+    forceLocked: false,
+    nodeCaptionsOnByDefault: true,
+    directedEdges: true,
+    initialScale: 0.7,
+    initialTranslate: [250, 150],
+    nodeTypes: {
+        "node_type": [
+            "University",
+            "Department",
+            "Project",
+            "Employee",
+            "Other"
+        ]
+    },
+    nodeCaption: "name",
+    rootNodeRadius: 30,
+
+    showControlDash: true,
+
+    showStats: true,
+    nodeStats: true,
+
+    showFilters: true,
+    nodeFilters: true,
+
+    captionToggle: true,
+    edgesToggle: true,
+    nodesToggle: true,
+    toggleRootNotes: false,
+
+    zoomControls: true
+}
+
+
+alchemy = new Alchemy(config);
+</script>
 
 
 

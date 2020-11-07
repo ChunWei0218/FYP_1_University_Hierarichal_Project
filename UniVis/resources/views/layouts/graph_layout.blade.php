@@ -128,10 +128,11 @@
     <!-- <script type="text/javascript" src="js/alchemyconfig.js"></script> -->
     <script type="text/javascript">
     var config = {
-    dataSource: "data/UniVis.json",
+    dataSource: "data/UnIVis.json",
     cluster: true,
     clusterColours: ["#DD79FF", "#00FF30", "#5168FF", "#f83f00", "#ff8d8f"],
     forceLocked: false,
+    nodeCaption: "name",
     nodeCaptionsOnByDefault: true,
     directedEdges: true,
     initialScale: 0.7,
@@ -141,10 +142,10 @@
             "University",
             "Department",
             "Project",
-            "Employee",
-            "Other"
+            "Employee"
         ]
     },
+    edgeStyle: {all:{ opacity: 5 }},
     nodeCaption: "name",
     rootNodeRadius: 30,
 

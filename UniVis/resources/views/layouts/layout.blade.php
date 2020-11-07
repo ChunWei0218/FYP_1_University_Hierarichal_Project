@@ -50,8 +50,13 @@
                 <!-- Left -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                    <a class="nav-link" href="{{ route('university')}}"}>
+                    <a class="nav-link" href="{{ route('university')}}">
                             Universities
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{ route('edituniversity')}}">
+                            Edit Database
                         </a>
                     </li>
                     <li class="nav-item ">

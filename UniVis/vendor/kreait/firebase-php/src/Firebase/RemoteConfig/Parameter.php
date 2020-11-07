@@ -8,25 +8,26 @@ use Kreait\Firebase\Exception\InvalidArgumentException;
 
 class Parameter implements \JsonSerializable
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     private $name;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     private $description = '';
 
-    /** @var DefaultValue */
+    /**
+     * @var DefaultValue
+     */
     private $defaultValue;
 
-    /** @var ConditionalValue[] */
+    /**
+     * @var ConditionalValue[]
+     */
     private $conditionalValues = [];
 
-    private function __construct()
-    {
-    }
-
-    /**
-     * @param DefaultValue|string|mixed $defaultValue
-     */
     public static function named(string $name, $defaultValue = null): self
     {
         if ($defaultValue === null) {
@@ -44,6 +45,9 @@ class Parameter implements \JsonSerializable
         return $parameter;
     }
 
+    /**
+     * @return string
+     */
     public function name(): string
     {
         return $this->name;
@@ -57,9 +61,6 @@ class Parameter implements \JsonSerializable
         return $parameter;
     }
 
-    /**
-     * @param DefaultValue|string $defaultValue
-     */
     public function withDefaultValue($defaultValue): self
     {
         $defaultValue = $defaultValue instanceof DefaultValue ? $defaultValue : DefaultValue::with($defaultValue);
@@ -91,19 +92,13 @@ class Parameter implements \JsonSerializable
         return $this->conditionalValues;
     }
 
-    /**
-     * @deprecated 5.10.0
-     * @codeCoverageIgnore
-     *
-     * @param array<string, mixed> $data
-     */
     public static function fromArray(array $data): self
     {
-        \reset($data);
-        $parameterData = \current($data);
+        reset($data);
+        $parameterData = current($data);
 
         $parameter = new self();
-        $parameter->name = (string) \key($data);
+        $parameter->name = key($data);
         $parameter->defaultValue = DefaultValue::fromArray($parameterData['defaultValue'] ?? []);
 
         foreach ((array) ($parameterData['conditionalValues'] ?? []) as $key => $conditionalValueData) {
@@ -117,17 +112,14 @@ class Parameter implements \JsonSerializable
         return $parameter;
     }
 
-    /**
-     * @return array<string, mixed>
-     */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         $conditionalValues = [];
         foreach ($this->conditionalValues() as $conditionalValue) {
             $conditionalValues[$conditionalValue->conditionName()] = $conditionalValue->jsonSerialize();
         }
 
-        return \array_filter([
+        return array_filter([
             'defaultValue' => $this->defaultValue,
             'conditionalValues' => $conditionalValues,
             'description' => $this->description,

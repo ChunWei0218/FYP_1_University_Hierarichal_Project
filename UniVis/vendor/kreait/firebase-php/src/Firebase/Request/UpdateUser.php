@@ -11,19 +11,24 @@ use Kreait\Firebase\Value\Provider;
 
 final class UpdateUser implements Request
 {
-    public const DISPLAY_NAME = 'DISPLAY_NAME';
-    public const PHOTO_URL = 'PHOTO_URL';
-    public const EMAIL = 'EMAIL';
+    const DISPLAY_NAME = 'DISPLAY_NAME';
+    const PHOTO_URL = 'PHOTO_URL';
 
     use EditUserTrait;
 
-    /** @var array<string> */
+    /**
+     * @var array
+     */
     private $attributesToDelete = [];
 
-    /** @var Provider[] */
+    /**
+     * @var Provider[]
+     */
     private $providersToDelete = [];
 
-    /** @var array<string, mixed>|null */
+    /**
+     * @var array|null
+     */
     private $customAttributes;
 
     private function __construct()
@@ -36,8 +41,6 @@ final class UpdateUser implements Request
     }
 
     /**
-     * @param array<string, mixed> $properties
-     *
      * @throws InvalidArgumentException when invalid properties have been provided
      */
     public static function withProperties(array $properties): self
@@ -45,7 +48,7 @@ final class UpdateUser implements Request
         $request = self::withEditableProperties(new self(), $properties);
 
         foreach ($properties as $key => $value) {
-            switch (\mb_strtolower((string) \preg_replace('/[^a-z]/i', '', (string) $key))) {
+            switch (strtolower(preg_replace('/[^a-z]/i', '', $key))) {
                 case 'deletephoto':
                 case 'deletephotourl':
                 case 'removephoto':
@@ -56,24 +59,17 @@ final class UpdateUser implements Request
                 case 'removedisplayname':
                     $request = $request->withRemovedDisplayName();
                     break;
-                case 'deleteemail':
-                case 'removeemail':
-                    $request = $request->withRemovedEmail();
-                    break;
 
                 case 'deleteattribute':
                 case 'deleteattributes':
                     foreach ((array) $value as $deleteAttribute) {
-                        switch (\mb_strtolower(\preg_replace('/[^a-z]/i', '', $deleteAttribute))) {
+                        switch (strtolower(preg_replace('/[^a-z]/i', '', $deleteAttribute))) {
                             case 'displayname':
                                 $request = $request->withRemovedDisplayName();
                                 break;
                             case 'photo':
                             case 'photourl':
                                 $request = $request->withRemovedPhotoUrl();
-                                break;
-                            case 'email':
-                                $request = $request->withRemovedEmail();
                                 break;
                         }
                     }
@@ -98,7 +94,7 @@ final class UpdateUser implements Request
                 case 'deleteproviders':
                 case 'removeprovider':
                 case 'removeproviders':
-                    $request = \array_reduce((array) $value, static function (self $request, $provider) {
+                    $request = array_reduce((array) $value, function (self $request, $provider) {
                         return $request->withRemovedProvider($provider);
                     }, $request);
                     break;
@@ -116,9 +112,6 @@ final class UpdateUser implements Request
         return $request->withRemovedProvider('phone');
     }
 
-    /**
-     * @param Provider|string $provider
-     */
     public function withRemovedProvider($provider): self
     {
         $provider = $provider instanceof Provider ? $provider : new Provider($provider);
@@ -147,18 +140,6 @@ final class UpdateUser implements Request
         return $request;
     }
 
-    public function withRemovedEmail(): self
-    {
-        $request = clone $this;
-        $request->email = null;
-        $request->attributesToDelete[] = self::EMAIL;
-
-        return $request;
-    }
-
-    /**
-     * @param array<string, mixed> $customAttributes
-     */
     public function withCustomAttributes(array $customAttributes): self
     {
         $request = clone $this;
@@ -167,10 +148,7 @@ final class UpdateUser implements Request
         return $request;
     }
 
-    /**
-     * @return array<string, mixed>
-     */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         if (!$this->hasUid()) {
             throw new InvalidArgumentException('A uid is required to update an existing user.');
@@ -178,16 +156,12 @@ final class UpdateUser implements Request
 
         $data = $this->prepareJsonSerialize();
 
-        if (\is_array($this->customAttributes)) {
-            if (empty($this->customAttributes)) {
-                $data['customAttributes'] = '{}';
-            } else {
-                $data['customAttributes'] = JSON::encode($this->customAttributes);
-            }
+        if ($this->customAttributes) {
+            $data['customAttributes'] = JSON::encode($this->customAttributes);
         }
 
         if (!empty($this->attributesToDelete)) {
-            $data['deleteAttribute'] = \array_unique($this->attributesToDelete);
+            $data['deleteAttribute'] = array_unique($this->attributesToDelete);
         }
 
         if (!empty($this->providersToDelete)) {

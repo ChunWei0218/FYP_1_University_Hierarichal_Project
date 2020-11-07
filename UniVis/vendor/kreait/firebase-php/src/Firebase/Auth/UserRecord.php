@@ -5,70 +5,81 @@ declare(strict_types=1);
 namespace Kreait\Firebase\Auth;
 
 use DateTimeImmutable;
-use Kreait\Firebase\Util\Deprecation;
 use Kreait\Firebase\Util\DT;
 use Kreait\Firebase\Util\JSON;
 
-/**
- * @property array<string, mixed> $customAttributes Deprecated, use {@see UserRecord::$customClaims} instead
- */
 class UserRecord implements \JsonSerializable
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     public $uid;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     */
     public $email;
 
-    /** @var bool */
-    public $emailVerified = false;
+    /**
+     * @var bool|null
+     */
+    public $emailVerified;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     */
     public $displayName;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     */
     public $photoUrl;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     */
     public $phoneNumber;
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     public $disabled;
 
-    /** @var UserMetaData */
+    /**
+     * @var UserMetaData
+     */
     public $metadata;
 
-    /** @var UserInfo[] */
+    /**
+     * @var UserInfo[]
+     */
     public $providerData;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     */
     public $passwordHash;
 
-    /** @var string|null */
-    public $passwordSalt;
+    /**
+     * @var array
+     */
+    public $customAttributes;
 
-    /** @var array<string, mixed> */
-    public $customClaims;
-
-    /** @var DateTimeImmutable|null */
+    /**
+     * @var DateTimeImmutable|null
+     */
     public $tokensValidAfterTime;
-
-    /** @var string|null */
-    public $tenantId;
 
     public function __construct()
     {
     }
 
-    /**
-     * @param array<string, mixed> $data
-     */
-    public static function fromResponseData(array $data): self
+    public static function fromResponseData(array $data)
     {
         $record = new self();
         $record->uid = $data['localId'];
         $record->email = $data['email'] ?? null;
-        $record->emailVerified = $data['emailVerified'] ?? false;
+        $record->emailVerified = $data['emailVerified'] ?? null;
         $record->displayName = $data['displayName'] ?? null;
         $record->photoUrl = $data['photoUrl'] ?? null;
         $record->phoneNumber = $data['phoneNumber'] ?? null;
@@ -76,67 +87,44 @@ class UserRecord implements \JsonSerializable
         $record->metadata = self::userMetaDataFromResponseData($data);
         $record->providerData = self::userInfoFromResponseData($data);
         $record->passwordHash = $data['passwordHash'] ?? null;
-        $record->passwordSalt = $data['salt'] ?? null;
-        $record->tenantId = $data['tenantId'] ?? null;
 
         if ($data['validSince'] ?? null) {
             $record->tokensValidAfterTime = DT::toUTCDateTimeImmutable($data['validSince']);
         }
 
-        if ($customClaims = $data['customClaims'] ?? $data['customAttributes'] ?? '{}') {
-            $record->customClaims = JSON::decode($customClaims, true);
+        if ($customAttributes = $data['customAttributes'] ?? '{}') {
+            $record->customAttributes = JSON::decode($customAttributes, true);
         }
 
         return $record;
     }
 
-    /**
-     * @param array<string, mixed> $data
-     */
     private static function userMetaDataFromResponseData(array $data): UserMetaData
     {
         return UserMetaData::fromResponseData($data);
     }
 
-    /**
-     * @param array<string, mixed> $data
-     *
-     * @return array<int, UserInfo>
-     */
     private static function userInfoFromResponseData(array $data): array
     {
-        return \array_map(static function (array $userInfoData) {
+        return array_map(function (array $userInfoData) {
             return UserInfo::fromResponseData($userInfoData);
         }, $data['providerUserInfo'] ?? []);
     }
 
-    /**
-     * @return array<string, mixed>
-     */
-    public function jsonSerialize(): array
+    public function toArray(): array
     {
-        $data = \get_object_vars($this);
-
-        $data['tokensValidAfterTime'] = $this->tokensValidAfterTime
-            ? $this->tokensValidAfterTime->format(\DATE_ATOM)
-            : null;
-
-        return $data;
+        return get_object_vars($this);
     }
 
-    /**
-     * @param string $name
-     *
-     * @return mixed
-     */
-    public function __get($name)
+    public function jsonSerialize()
     {
-        if (\mb_strtolower($name) === 'customattributes') {
-            Deprecation::trigger(__CLASS__.'::customAttributes', __CLASS__.'::customClaims');
+        $data = $this->toArray();
+        $data['metadata'] = $this->metadata->jsonSerialize();
 
-            return $this->customClaims;
+        if ($data['tokensValidAfterTime']) {
+            $data['tokensValidAfterTime'] = $data['tokensValidAfterTime']->format(DATE_ATOM);
         }
 
-        return $this->{$name};
+        return $data;
     }
 }

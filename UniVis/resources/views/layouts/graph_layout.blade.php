@@ -19,9 +19,10 @@
     <link rel="stylesheet" href="/css/vendor.css" />
     <link rel="stylesheet" href="/css/alchemy.css" />
     <link rel="stylesheet" href="/css/alchemy.min.css" />
+    <link href="/css/customapp.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <link href="/css/customapp.css" rel="stylesheet">
+
 
 
 </head>
@@ -48,8 +49,13 @@
                 <!-- Left -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{ route('university')}}" }>
+                        <a class="nav-link" href="{{ route('university')}}" >
                             Universities
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{ route('edituniversity')}}">
+                            Edit Database
                         </a>
                     </li>
                     <li class="nav-item ">

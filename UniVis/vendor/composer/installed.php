@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'c844b9418d94b7f305675f08bbcd4bee263a7345',
+    'reference' => 'b8ddb0e96f207a67f8594b03a39fba1458a529d0',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -133,6 +133,15 @@
       ),
       'reference' => '9beebf48a1c344ed67c1d36bb1b8709db7c3c1a8',
     ),
+    'fig/http-message-util' => 
+    array (
+      'pretty_version' => '1.1.4',
+      'version' => '1.1.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '3242caa9da7221a304b8f84eb9eaddae0a7cf422',
+    ),
     'filp/whoops' => 
     array (
       'pretty_version' => '2.7.3',
@@ -141,6 +150,15 @@
       array (
       ),
       'reference' => '5d5fe9bb3d656b514d455645b3addc5f7ba7714d',
+    ),
+    'firebase/php-jwt' => 
+    array (
+      'pretty_version' => 'v5.2.0',
+      'version' => '5.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'feb0e820b8436873675fd3aca04f3728eb2185cb',
     ),
     'fruitcake/laravel-cors' => 
     array (
@@ -160,6 +178,60 @@
       ),
       'reference' => 'fc10d778e4b84d5bd315dad194661e091d307c6f',
     ),
+    'giggsey/libphonenumber-for-php' => 
+    array (
+      'pretty_version' => '8.12.12',
+      'version' => '8.12.12.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f3802f572c5fff322a2ccd8d2d792c147ed9e3c4',
+    ),
+    'giggsey/locale' => 
+    array (
+      'pretty_version' => '1.9',
+      'version' => '1.9.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b07f1eace8072ccc61445ad8fbd493ff9d783043',
+    ),
+    'google/auth' => 
+    array (
+      'pretty_version' => 'v1.14.3',
+      'version' => '1.14.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c1503299c779af0cbc99b43788f75930988852cf',
+    ),
+    'google/cloud-core' => 
+    array (
+      'pretty_version' => 'v1.40.0',
+      'version' => '1.40.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1f45457d796c3807bc4b19c3d7b7e89a2f59d63c',
+    ),
+    'google/cloud-storage' => 
+    array (
+      'pretty_version' => 'v1.23.0',
+      'version' => '1.23.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '42f7dfb248318aa152b4491b72279035df0d0900',
+    ),
+    'google/crc32' => 
+    array (
+      'pretty_version' => 'v0.1.0',
+      'version' => '0.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a8525f0dea6fca1893e1bae2f6e804c5f7d007fb',
+    ),
     'graham-campbell/result-type' => 
     array (
       'pretty_version' => 'v1.0.1',
@@ -171,8 +243,8 @@
     ),
     'guzzlehttp/guzzle' => 
     array (
-      'pretty_version' => '7.1.0',
-      'version' => '7.1.0.0',
+      'pretty_version' => '6.2.1',
+      'version' => '6.2.1.0',
       'aliases' => 
       array (
       ),
@@ -180,21 +252,21 @@
     ),
     'guzzlehttp/promises' => 
     array (
-      'pretty_version' => 'v1.3.1',
-      'version' => '1.3.1.0',
+      'pretty_version' => '1.4.0',
+      'version' => '1.4.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'a59da6cf61d80060647ff4d3eb2c03a2bc694646',
+      'reference' => '60d379c243457e073cff02bc323a2a86cb355631',
     ),
     'guzzlehttp/psr7' => 
     array (
-      'pretty_version' => '1.6.1',
-      'version' => '1.6.1.0',
+      'pretty_version' => '1.7.0',
+      'version' => '1.7.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '239400de7a173fe9901b9ac7c06497751f00727a',
+      'reference' => '53330f47520498c0ae1f61f7e2c90f55690c06a3',
     ),
     'hamcrest/hamcrest-php' => 
     array (
@@ -429,6 +501,42 @@
         0 => '*',
       ),
     ),
+    'kreait/clock' => 
+    array (
+      'pretty_version' => '1.1.0',
+      'version' => '1.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8f1fbc252e4e81298ae7c520597c25e9a6a0f454',
+    ),
+    'kreait/firebase-php' => 
+    array (
+      'pretty_version' => '4.16.0',
+      'version' => '4.16.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c30740e5df6d7aafd98fdc3f94ca9f06c26e2592',
+    ),
+    'kreait/firebase-tokens' => 
+    array (
+      'pretty_version' => '1.11.0',
+      'version' => '1.11.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '26dcb56cb49cea30fd020a416f53f59d2d78a58b',
+    ),
+    'kreait/gcp-metadata' => 
+    array (
+      'pretty_version' => '1.1.0',
+      'version' => '1.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7ab206ba1d7b59a502be07e5ec2df617a7b1ba38',
+    ),
     'laravel/framework' => 
     array (
       'pretty_version' => 'v8.6.0',
@@ -445,7 +553,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'c844b9418d94b7f305675f08bbcd4bee263a7345',
+      'reference' => 'b8ddb0e96f207a67f8594b03a39fba1458a529d0',
     ),
     'laravel/tinker' => 
     array (
@@ -464,6 +572,15 @@
       array (
       ),
       'reference' => 'ff6af4f0bc5a5bfe73352cdc03dbfffc4ace92d8',
+    ),
+    'lcobucci/jwt' => 
+    array (
+      'pretty_version' => '3.3.3',
+      'version' => '3.3.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c1123697f6a2ec29162b82f170dd4a491f524773',
     ),
     'league/commonmark' => 
     array (
@@ -516,6 +633,15 @@
       array (
         0 => '^1.0',
       ),
+    ),
+    'mtdowling/jmespath.php' => 
+    array (
+      'pretty_version' => '2.6.0',
+      'version' => '2.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '42dae2cbd13154083ca6d70099692fef8ca84bfb',
     ),
     'myclabs/deep-copy' => 
     array (
@@ -692,6 +818,15 @@
       ),
       'reference' => 'f7316ea106df7c9507f4fdaa88c47bc10a3b27a1',
     ),
+    'psr/cache' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd11b50ad223250cf17b86e38383413f5a6764bf8',
+    ),
     'psr/container' => 
     array (
       'pretty_version' => '1.0.0',
@@ -769,8 +904,8 @@
     array (
       'provided' => 
       array (
-        0 => '1.0',
-        1 => '1.0.0',
+        0 => '1.0.0',
+        1 => '1.0',
       ),
     ),
     'psr/simple-cache' => 
@@ -824,6 +959,15 @@
       array (
         0 => '4.1.1',
       ),
+    ),
+    'rize/uri-template' => 
+    array (
+      'pretty_version' => '0.3.2',
+      'version' => '0.3.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9e5fdd5c47147aa5adf7f760002ee591ed37b9ca',
     ),
     'scrivo/highlight.php' => 
     array (
@@ -977,6 +1121,15 @@
       array (
       ),
       'reference' => '626586115d0ed31cb71483be55beb759b5af5a3c',
+    ),
+    'superbalist/flysystem-google-storage' => 
+    array (
+      'pretty_version' => '7.2.2',
+      'version' => '7.2.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '87e2f450c0e4b5200fef9ffe6863068cc873d734',
     ),
     'swiftmailer/swiftmailer' => 
     array (

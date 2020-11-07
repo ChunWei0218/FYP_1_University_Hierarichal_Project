@@ -1,61 +1,57 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Kreait\Firebase\Messaging;
 
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Promise\PromiseInterface;
-use Kreait\Firebase\Exception\FirebaseException;
-use Kreait\Firebase\Exception\MessagingApiExceptionConverter;
+use GuzzleHttp\Exception\RequestException;
 use Kreait\Firebase\Exception\MessagingException;
-use Kreait\Firebase\Http\WrappedGuzzleClient;
-use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Throwable;
+use Psr\Http\Message\UriInterface;
 
-/**
- * @internal
- */
-class ApiClient implements ClientInterface
+class ApiClient
 {
-    use WrappedGuzzleClient;
-
-    /** @var MessagingApiExceptionConverter */
-    private $errorHandler;
-
     /**
-     * @internal
+     * @var ClientInterface
      */
-    public function __construct(ClientInterface $client, MessagingApiExceptionConverter $errorHandler)
+    private $client;
+
+    public function __construct(ClientInterface $client)
     {
         $this->client = $client;
-        $this->errorHandler = $errorHandler;
     }
 
-    /**
-     * @param array<string, mixed> $options
-     *
-     * @throws MessagingException
-     * @throws FirebaseException
-     */
-    public function send(RequestInterface $request, array $options = []): ResponseInterface
+    public function sendMessage(Message $message): ResponseInterface
     {
+        return $this->request('POST', 'messages:send', [
+            'json' => ['message' => $message->jsonSerialize()],
+        ]);
+    }
+
+    public function validateMessage(Message $message): ResponseInterface
+    {
+        return $this->request('POST', 'messages:send', [
+            'json' => [
+                'message' => $message->jsonSerialize(),
+                'validate_only' => true,
+            ],
+        ]);
+    }
+
+    private function request($method, $endpoint, array $options = null): ResponseInterface
+    {
+        $options = $options ?? [];
+
+        /** @var UriInterface $uri */
+        $uri = $this->client->getConfig('base_uri');
+        $path = rtrim($uri->getPath(), '/').'/'.ltrim($endpoint, '/');
+        $uri = $uri->withPath($path);
+
         try {
-            return $this->client->send($request);
-        } catch (Throwable $e) {
-            throw $this->errorHandler->convertException($e);
+            return $this->client->request($method, $uri, $options);
+        } catch (RequestException $e) {
+            throw MessagingException::fromRequestException($e);
+        } catch (\Throwable $e) {
+            throw new MessagingException($e->getMessage(), $e->getCode(), $e);
         }
-    }
-
-    /**
-     * @param array<string, mixed> $options
-     */
-    public function sendAsync(RequestInterface $request, array $options = []): PromiseInterface
-    {
-        return $this->client->sendAsync($request, $options)
-            ->then(null, function (Throwable $e): void {
-                throw $this->errorHandler->convertException($e);
-            });
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d72200e650be04851704b55dcb6845d",
+    "content-hash": "87aa699247c220b664419dea33ad9d7c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1038,7 +1038,7 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.1.0",
+            "version": "6.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
@@ -1300,16 +1300,16 @@
         },
         {
             "name": "kreait/firebase-php",
-            "version": "5.11.0",
+            "version": "4.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kreait/firebase-php.git",
-                "reference": "83380a3a0f15415b1eab03d3a3db19578e3bb5c5"
+                "reference": "c30740e5df6d7aafd98fdc3f94ca9f06c26e2592"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kreait/firebase-php/zipball/83380a3a0f15415b1eab03d3a3db19578e3bb5c5",
-                "reference": "83380a3a0f15415b1eab03d3a3db19578e3bb5c5",
+                "url": "https://api.github.com/repos/kreait/firebase-php/zipball/c30740e5df6d7aafd98fdc3f94ca9f06c26e2592",
+                "reference": "c30740e5df6d7aafd98fdc3f94ca9f06c26e2592",
                 "shasum": ""
             },
             "require": {
@@ -1318,47 +1318,34 @@
                 "ext-mbstring": "*",
                 "ext-openssl": "*",
                 "giggsey/libphonenumber-for-php": "^8.9",
-                "google/auth": "^1.8",
-                "google/cloud-core": "^1.36",
-                "google/cloud-storage": "^1.14",
-                "guzzlehttp/guzzle": "^6.2.1|^7.0",
-                "guzzlehttp/promises": "^1.4",
-                "guzzlehttp/psr7": "^1.7",
-                "kreait/clock": "^1.0.1",
-                "kreait/firebase-tokens": "^1.10",
-                "lcobucci/jwt": "^3.3.1",
+                "google/auth": "^0.11.0|^1.0",
+                "guzzlehttp/guzzle": "^6.2.1",
+                "kreait/firebase-tokens": "^1.1.1",
+                "kreait/gcp-metadata": "^1.0.1",
+                "lcobucci/jwt": "^3.2",
                 "mtdowling/jmespath.php": "^2.3",
-                "php": "^7.2|^8.0",
-                "psr/cache": "^1.0",
-                "psr/http-message": "^1.0",
-                "psr/log": "^1.1",
-                "psr/simple-cache": "^1.0",
-                "riverline/multipart-parser": "^2.0"
+                "php": "^7.0",
+                "superbalist/flysystem-google-storage": "^7.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "google/cloud-firestore": "^1.11",
-                "jangregor/phpstan-prophecy": "^0.6.2",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^0.12.15",
-                "phpstan/phpstan-phpunit": "^0.12.6",
-                "phpunit/phpunit": "^8.5",
-                "symfony/var-dumper": "^5.0"
-            },
-            "suggest": {
-                "google/cloud-firestore": "^1.0 to use the Firestore component"
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "phpstan/phpstan-phpunit": "^0.9.2",
+                "phpunit/phpunit": "^6.0|^7.0",
+                "symfony/var-dumper": "^3.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "5.x-dev",
-                    "dev-4.x": "4.x-dev"
+                    "dev-master": "4.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "Kreait\\Firebase\\": "src/Firebase"
-                }
+                },
+                "files": [
+                    "src/Firebase.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1379,13 +1366,12 @@
                 "google",
                 "sdk"
             ],
-            "funding": [
-                {
-                    "url": "https://github.com/sponsors/jeromegamez",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-11-01T15:25:32+00:00"
+            "support": {
+                "docs": "https://firebase-php.readthedocs.io",
+                "issues": "https://github.com/kreait/firebase-php/issues",
+                "source": "https://github.com/kreait/firebase-php"
+            },
+            "time": "2018-08-23T22:54:22+00:00"
         },
         {
             "name": "kreait/firebase-tokens",
@@ -1460,6 +1446,59 @@
                 }
             ],
             "time": "2020-10-04T00:32:51+00:00"
+        },
+        {
+            "name": "kreait/gcp-metadata",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kreait/gcp-metadata-php.git",
+                "reference": "7ab206ba1d7b59a502be07e5ec2df617a7b1ba38"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kreait/gcp-metadata-php/zipball/7ab206ba1d7b59a502be07e5ec2df617a7b1ba38",
+                "reference": "7ab206ba1d7b59a502be07e5ec2df617a7b1ba38",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0",
+                "php": "^7.0",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5.14|^7.5.19"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kreait\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jérôme Gamez",
+                    "email": "jerome@gamez.name"
+                }
+            ],
+            "description": "Get the metadata from a Google Cloud Platform environment.",
+            "keywords": [
+                "gce",
+                "gcp",
+                "google",
+                "google-cloud",
+                "google-cloud-engine",
+                "google-cloud-platform"
+            ],
+            "support": {
+                "issues": "https://github.com/kreait/gcp-metadata-php/issues",
+                "source": "https://github.com/kreait/gcp-metadata-php/tree/master"
+            },
+            "time": "2020-03-19T18:31:55+00:00"
         },
         {
             "name": "laravel/framework",
@@ -3108,58 +3147,6 @@
             "time": "2020-08-18T17:17:46+00:00"
         },
         {
-            "name": "riverline/multipart-parser",
-            "version": "2.0.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Riverline/multipart-parser.git",
-                "reference": "2fe9026789754c1ff07c06047f0acc113e90933a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Riverline/multipart-parser/zipball/2fe9026789754c1ff07c06047f0acc113e90933a",
-                "reference": "2fe9026789754c1ff07c06047f0acc113e90933a",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.6.0"
-            },
-            "require-dev": {
-                "laminas/laminas-diactoros": "^1.8.7",
-                "phpunit/phpunit": "^5.2 || ^6.0 || ^7.0",
-                "psr/http-message": "^1.0",
-                "symfony/psr-http-message-bridge": "^1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Riverline\\MultiPartParser\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Romain Cambien",
-                    "email": "romain@cambien.net"
-                },
-                {
-                    "name": "Riverline",
-                    "homepage": "http://www.riverline.fr"
-                }
-            ],
-            "description": "One class library to parse multipart content with encoding and charset support.",
-            "keywords": [
-                "http",
-                "multipart",
-                "parser"
-            ],
-            "time": "2020-01-24T09:39:24+00:00"
-        },
-        {
             "name": "rize/uri-template",
             "version": "0.3.2",
             "source": {
@@ -3202,6 +3189,57 @@
                 "uri"
             ],
             "time": "2017-06-14T03:57:53+00:00"
+        },
+        {
+            "name": "superbalist/flysystem-google-storage",
+            "version": "7.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Superbalist/flysystem-google-cloud-storage.git",
+                "reference": "87e2f450c0e4b5200fef9ffe6863068cc873d734"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Superbalist/flysystem-google-cloud-storage/zipball/87e2f450c0e4b5200fef9ffe6863068cc873d734",
+                "reference": "87e2f450c0e4b5200fef9ffe6863068cc873d734",
+                "shasum": ""
+            },
+            "require": {
+                "google/cloud-storage": "~1.0",
+                "league/flysystem": "~1.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Superbalist\\Flysystem\\GoogleStorage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Superbalist.com a division of Takealot Online (Pty) Ltd",
+                    "email": "info@superbalist.com"
+                }
+            ],
+            "description": "Flysystem adapter for Google Cloud Storage",
+            "support": {
+                "issues": "https://github.com/Superbalist/flysystem-google-cloud-storage/issues",
+                "source": "https://github.com/Superbalist/flysystem-google-cloud-storage/tree/7.2.2"
+            },
+            "time": "2019-10-10T12:22:54+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8083,5 +8121,5 @@
         "php": "^7.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

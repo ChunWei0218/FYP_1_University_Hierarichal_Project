@@ -6,51 +6,39 @@ namespace Kreait\Firebase\Messaging;
 
 use Kreait\Firebase\Exception\InvalidArgumentException;
 
-final class Notification implements \JsonSerializable
+class Notification implements \JsonSerializable
 {
-    /** @var string|null */
+    /**
+     * @var string|null
+     */
     private $title;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     */
     private $body;
 
-    /** @var string|null */
-    private $imageUrl;
-
-    /**
-     * @throws InvalidArgumentException if both title and body are null
-     */
-    private function __construct(?string $title = null, ?string $body = null, ?string $imageUrl = null)
+    private function __construct(string $title = null, string $body = null)
     {
         $this->title = $title;
         $this->body = $body;
-        $this->imageUrl = $imageUrl;
-
-        if ($this->title === null && $this->body === null) {
-            throw new InvalidArgumentException('The title and body of a notification cannot both be NULL');
-        }
     }
 
-    /**
-     * @throws InvalidArgumentException if both title and body are null
-     */
-    public static function create(?string $title = null, ?string $body = null, ?string $imageUrl = null): self
+    public static function create(string $title = null, string $body = null): self
     {
-        return new self($title, $body, $imageUrl);
+        return new self($title, $body);
     }
 
-    /**
-     * @param array<string, string> $data
-     *
-     * @throws InvalidArgumentException if both title and body are null
-     */
     public static function fromArray(array $data): self
     {
-        return new self(
-            $data['title'] ?? null,
-            $data['body'] ?? null,
-            $data['image'] ?? null
-        );
+        try {
+            return new self(
+                $data['title'] ?? null,
+                $data['body'] ?? null
+            );
+        } catch (\Throwable $e) {
+            throw new InvalidArgumentException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     public function withTitle(string $title): self
@@ -69,39 +57,28 @@ final class Notification implements \JsonSerializable
         return $notification;
     }
 
-    public function withImageUrl(string $imageUrl): self
-    {
-        $notification = clone $this;
-        $notification->imageUrl = $imageUrl;
-
-        return $notification;
-    }
-
-    public function title(): ?string
+    /**
+     * @return null|string
+     */
+    public function title()
     {
         return $this->title;
     }
 
-    public function body(): ?string
+    /**
+     * @return null|string
+     */
+    public function body()
     {
         return $this->body;
     }
 
-    public function imageUrl(): ?string
+    public function jsonSerialize()
     {
-        return $this->imageUrl;
-    }
-
-    /**
-     * @return array<string, string>
-     */
-    public function jsonSerialize(): array
-    {
-        return \array_filter([
+        return array_filter([
             'title' => $this->title,
             'body' => $this->body,
-            'image' => $this->imageUrl,
-        ], static function ($value) {
+        ], function ($value) {
             return $value !== null;
         });
     }

@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Kreait\Firebase\Messaging;
 
-final class RegistrationToken implements \JsonSerializable
+class RegistrationToken implements \JsonSerializable
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     private $value;
 
     private function __construct(string $value)
@@ -24,12 +26,12 @@ final class RegistrationToken implements \JsonSerializable
         return $this->value;
     }
 
-    public function __toString(): string
+    public function __toString()
     {
         return $this->value;
     }
 
-    public function jsonSerialize(): string
+    public function jsonSerialize()
     {
         return $this->value;
     }

@@ -6,24 +6,23 @@ namespace Kreait\Firebase\Auth;
 
 use Firebase\Auth\Token\Domain\Generator;
 use GuzzleHttp\ClientInterface;
-use InvalidArgumentException;
-use Kreait\Firebase\Exception\Auth\AuthError;
-use Kreait\Firebase\Exception\AuthApiExceptionConverter;
+use GuzzleHttp\Exception\RequestException;
 use Kreait\Firebase\Exception\AuthException;
-use Kreait\Firebase\Exception\FirebaseException;
 use Kreait\Firebase\Util\JSON;
-use Kreait\Firebase\Value\Uid;
 use Lcobucci\JWT\Builder;
 use Lcobucci\JWT\Parser;
 use Lcobucci\JWT\Token;
-use Throwable;
 
 class CustomTokenViaGoogleIam implements Generator
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     private $clientEmail;
 
-    /** @var ClientInterface */
+    /**
+     * @var ClientInterface
+     */
     private $client;
 
     public function __construct(string $clientEmail, ClientInterface $client)
@@ -32,29 +31,22 @@ class CustomTokenViaGoogleIam implements Generator
         $this->client = $client;
     }
 
-    /**
-     * @param Uid|string$uid
-     * @param array<string, mixed> $claims
-     *
-     * @throws AuthException
-     * @throws FirebaseException
-     */
-    public function createCustomToken($uid, array $claims = [], ?\DateTimeInterface $expiresAt = null): Token
+    public function createCustomToken($uid, array $claims = [], \DateTimeInterface $expiresAt = null): Token
     {
-        $now = \time();
+        $now = time();
         $expiration = $expiresAt ? $expiresAt->getTimestamp() : $now + (60 * 60);
 
         $builder = (new Builder())
-            ->withHeader('alg', 'RS256')
-            ->withClaim('uid', (string) $uid)
-            ->issuedBy($this->clientEmail)
-            ->relatedTo($this->clientEmail)
-            ->issuedAt($now)
-            ->expiresAt($expiration)
-            ->permittedFor('https://identitytoolkit.googleapis.com/google.identity.identitytoolkit.v1.IdentityToolkit');
+            ->setHeader('alg', 'RS256')
+            ->set('uid', (string) $uid)
+            ->setIssuer($this->clientEmail)
+            ->setSubject($this->clientEmail)
+            ->setIssuedAt($now)
+            ->setExpiration($expiration)
+            ->setAudience('https://identitytoolkit.googleapis.com/google.identity.identitytoolkit.v1.IdentityToolkit');
 
         if (!empty($claims)) {
-            $builder = $builder->withClaim('claims', $claims);
+            $builder->set('claims', $claims);
         }
 
         $token = $builder->getToken();
@@ -64,23 +56,19 @@ class CustomTokenViaGoogleIam implements Generator
         try {
             $response = $this->client->request('POST', $url, [
                 'json' => [
-                    'bytesToSign' => \base64_encode($token->getPayload()),
+                    'bytesToSign' => base64_encode($token->getPayload()),
                 ],
             ]);
-        } catch (Throwable $e) {
-            throw (new AuthApiExceptionConverter())->convertException($e);
+        } catch (RequestException $e) {
+            throw AuthException::fromRequestException($e);
         }
 
         $result = JSON::decode((string) $response->getBody(), true);
 
         if ($base64EncodedSignature = $result['signature'] ?? null) {
-            try {
-                return (new Parser())->parse(((string) $token).$base64EncodedSignature);
-            } catch (InvalidArgumentException $e) {
-                throw new AuthError('The custom token API returned an unexpected value: '.$e->getMessage(), $e->getCode(), $e);
-            }
+            return (new Parser())->parse(((string) $token).$base64EncodedSignature);
         }
 
-        throw new AuthError('Unable to create custom token.');
+        throw new AuthException('Unable to create custom token.');
     }
 }

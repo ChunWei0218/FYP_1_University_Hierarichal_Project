@@ -36,6 +36,10 @@ Route::get('/university_page', array('as' => 'university', function(){
     return view('university_page');
 }));
 
+Route::get('/university_edittable_page', array('as' => 'edituniversity', function(){
+    return view('university_edittable_page');
+}));
+
 Route::get('/account_page', array('as' => 'account', function(){
     return view('account_page');
 }));
@@ -52,9 +56,6 @@ Route::get('/university_table_page', array('as' => 'university_table', function(
     return view('university_table_page');
 }));
 
-Route::get('/university_edittable_page', array('as' => 'university_edit_table', function(){
-    return view('university_edittable_page');
-}));
 
 Auth::routes();
 

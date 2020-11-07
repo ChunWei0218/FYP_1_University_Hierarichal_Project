@@ -6,15 +6,16 @@ namespace Kreait\Firebase\RemoteConfig;
 
 class ConditionalValue implements \JsonSerializable
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     private $conditionName;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     private $value;
 
-    /**
-     * @internal
-     */
     public function __construct(string $conditionName, string $value)
     {
         $this->conditionName = $conditionName;
@@ -28,6 +29,8 @@ class ConditionalValue implements \JsonSerializable
 
     /**
      * @param string|Condition $condition
+     *
+     * @return self
      */
     public static function basedOn($condition): self
     {
@@ -49,10 +52,7 @@ class ConditionalValue implements \JsonSerializable
         return $conditionalValue;
     }
 
-    /**
-     * @return array<string, string>
-     */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         return ['value' => $this->value];
     }

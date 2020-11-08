@@ -22,19 +22,12 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-8">
-                            <h4>Contact Details - Retrieve/Get/Fetch Data from Firebase (Datbase) in PHP</h4>
+                            <h4>Database</h4>
                         </div>
                         <div class="col-md-4 text-right">
-                            <?php
-                            include('dbconfig.php');
-
-                            $ref = "edges";
-                            $totaldata = $database->getReference($ref)->getSnapshot()->numChildren();
-                            ?>
-                            <h5 class="bg-primary px-3 text-center py-2 text-white">Total Record Inserted: <?php echo $totaldata ?></h5>
                             <form action="university_code.blade.php" method="POST">
-                                <button type="submit" name="reset_data" class="btn btn-danger">Clear Data</button>
-                                <a href="university_inserttable_page.blade.php" class="btn btn-primary ml-3">Add</a>
+                                <a class="btn btn-primary ml-3">Add Data</a>
+                                <a class="btn btn-danger">Add Relationship</a>
                             </form>
                         </div>
                     </div>
@@ -42,51 +35,19 @@
                     <table class="table table-bordered">
                         <thead class="table-dark">
                             <tr>
-                                <th>id</th>
-                                <th>Caption</th>
-                                <th>Source</th>
-                                <th>Target</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Action</th>
                             </tr>
+                            @foreach($all_data as $data)
+                            <tr>
+                                <td>{{$data['name']}}</td>
+                                <td>{{$data['node_type']}}</td>
+                                <td><button class="btn btn-primary">Edit</button><button class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            @endforeach
                         </thead>
-                        <tbody class="">
-                            <?php
-                            include('dbconfig.php');
-
-                            $ref = "edges";
-                            $getdata = $database->getReference($ref)->getValue();
-                            $i = 0;
-                            if ($getdata > 0) {
-                                foreach ($getdata as $key => $row) {
-                                    $i++;
-                            ?>
-                                    <tr>
-                                        <td><?php echo $i; ?></td>
-                                        <td><?php echo $row['caption']; ?></td>
-                                        <td><?php echo $row['source']; ?></td>
-                                        <td><?php echo $row['target']; ?></td>
-                                        <td>
-                                            <a href="university_edittable_page.blade.php?token=<?php echo $key; ?>" class="btn btn-primary">Edit</a>
-                                        </td>
-                                        <td>
-                                            <form action="university_code.blade.php" method="POST">
-                                                <input type="hidden" name="ref_token_delete" value="<?php echo $key; ?>">
-                                                <button type="submit" name="delete_data" class="btn btn-danger">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                <?php
-                                }
-                            } else {
-                                ?>
-                                <tr class="text-center">
-                                    <td colspan="6">DATA NOT THERE IN DATABASE</td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
+                        
                     </table>
                 </div>
             </div>

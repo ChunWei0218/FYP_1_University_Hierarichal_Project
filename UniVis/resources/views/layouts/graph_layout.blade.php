@@ -54,7 +54,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{ route('edituniversity')}}">
+                        <a class="nav-link" href="{{ url('/university_table_page')}}">
                             Edit Database
                         </a>
                     </li>

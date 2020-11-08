@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Kreait\Firebase\Factory;
+use Kreait\Firebase\ServiceAccount;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,10 +39,6 @@ Route::get('/university_page', array('as' => 'university', function(){
     return view('university_page');
 }));
 
-Route::get('/university_edittable_page', array('as' => 'edituniversity', function(){
-    return view('university_edittable_page');
-}));
-
 Route::get('/account_page', array('as' => 'account', function(){
     return view('account_page');
 }));
@@ -52,11 +51,14 @@ Route::get('/university_code', array('as' => 'university_code', function(){
     return view('university_code');
 }));
 
-Route::get('/university_table_page', array('as' => 'university_table', function(){
-    return view('university_table_page');
-}));
+// Route::get('/university_table_page', array('as' => 'university_table_page', function(){
+//     return view('university_table_page');
+// }));
 
 
 Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
+
+Route::get('/university_table_page', 'App\Http\Controllers\FirebaseController@readfirebase');
+

@@ -33,4 +33,25 @@ class FirebaseController extends Controller
         ]);
         return $key;
     }
+
+    public function readFirebase()
+    {
+        $serviceAccount = ServiceAccount::fromJsonFile(__DIR__ . '/fyp_Firebase.json');
+        $firebase = (new Factory)
+            ->withServiceAccount($serviceAccount)
+            ->withDatabaseUri('https://fyp-univis.firebaseio.com/')
+            ->create();
+
+        $database = $firebase->getDatabase();
+
+        $ref = $database->getReference('nodes');
+
+        $adata = $ref->getValue();
+
+        foreach ($adata as $data){
+            $all_data[] = $data;
+        }
+
+        return view ('university_table_page',compact('all_data'));
+    }
 }

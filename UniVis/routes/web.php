@@ -51,14 +51,16 @@ Route::get('/university_code', array('as' => 'university_code', function(){
     return view('university_code');
 }));
 
-// Route::get('/university_table_page', array('as' => 'university_table_page', function(){
-//     return view('university_table_page');
-// }));
+Route::get('/university_table_page', array('as' => 'university_table_page', function(){
+    return view('university_table_page');
+}));
 
 
 Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 
-Route::get('/university_table_page', 'App\Http\Controllers\FirebaseController@readfirebase');
+// Route::get('/university_table_page', 'App\Http\Controllers\FirebaseController@readfirebase');
+// Route::get('/editData', 'App\Http\Controllers\FirebaseController@editData');
+Route::post('/university_table_page', 'App\Http\Controllers\FirebaseController@addData');
 

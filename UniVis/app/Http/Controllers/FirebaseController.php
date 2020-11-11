@@ -54,4 +54,63 @@ class FirebaseController extends Controller
 
         return view ('university_table_page',compact('all_data'));
     }
+
+    // This boi keeps taking old input
+    public function addData(Request $request){
+        $serviceAccount = ServiceAccount::fromJsonFile(__DIR__ . '/fyp_Firebase.json');
+        $firebase = (new Factory)
+            ->withServiceAccount($serviceAccount)
+            ->withDatabaseUri('https://fyp-univis.firebaseio.com/')
+            ->create();
+
+        $database = $firebase->getDatabase();
+
+        $ref = $database->getReference('nodes');
+
+        $nameData = $request->name;
+        $node_type = $request->node_type;
+
+        $key = $ref->push()->getKey();
+
+        $ref->getChild($key)->set([
+            'name'=>$nameData,
+            'node_type'=>$node_type
+        ]);
+
+        $adata = $ref->getValue();
+
+        foreach ($adata as $data){
+            $all_data[] = $data;
+        }
+
+        return view ('university_table_page',compact('all_data'));
+    }
+
+    public function saveToken(Request $request)
+    {
+        auth()->user()->update(['device_token'=>$request->token]);
+        return response()->json(['token saved successfully.']);
+    }
+
+    public function deleteData(){
+        $serviceAccount = ServiceAccount::fromJsonFile(__DIR__ . '/fyp_Firebase.json');
+        $firebase = (new Factory)
+            ->withServiceAccount($serviceAccount)
+            ->withDatabaseUri('https://fyp-univis.firebaseio.com/')
+            ->create();
+
+        $database = $firebase->getDatabase();
+
+        $ref = $database->getReference('nodes');
+
+        $adata = $ref->getValue();
+
+        $ref->remove();
+
+        foreach ($adata as $data){
+            $all_data[] = $data;
+        }
+
+        return view ('university_table_page',compact('all_data'));
+    }
 }

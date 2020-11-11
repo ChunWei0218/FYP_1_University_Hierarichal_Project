@@ -109,6 +109,134 @@
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/js/jquery-ui.min.js"></script>
+<!-- <script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script> -->
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAJiPNFCPgcyMwJ74kTIvbloDpFjtoNMRw",
+    authDomain: "fyp-univis.firebaseapp.com",
+    databaseURL: "https://fyp-univis.firebaseio.com",
+    projectId: "fyp-univis",
+    storageBucket: "fyp-univis.appspot.com",
+    messagingSenderId: "1017413433548",
+    appId: "1:1017413433548:web:80905c4a434581790aaa69"
+  };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig)
+    var database = firebase.database();
+    var lastIndex = 0;
+
+    // Get Data
+    firebase.database().ref('nodes/').on('value', function(snapshot) {
+        var value = snapshot.val();
+        var htmls = [];
+        $.each(value, function(index, value){
+            if(value) {
+                htmls.push('<tr>\
+                    <td>'+ value.name +'</td>\
+                    <td>'+ value.node_type +'</td>\
+                    <td><button data-toggle="modal" data-target="#update-modal" class="btn btn-outline-info updateData" data-id="'+index+'">Update</button>\
+                    <button data-toggle="modal" data-target="#remove-modal" class="btn btn-outline-danger removeData" data-id="'+index+'">Delete</button></td>\
+                </tr>');
+            }    	
+            lastIndex = index;
+        });
+        $('#zeliData').html(htmls);
+        // $("#submitUser").removeClass(desabled);
+    });
+// Add Data
+// $('#submitUser').on('click', function(){
+// 	var values = $("#addUser").serializeArray();
+// 	var name = values[0].value;
+// 	var node_type = values[1].value;
+// 	var userID = lastIndex+1;
+//   firebase.database().ref('nodes/' + userID).set({
+//     name: name,
+//     node_type: node_type,
+//   });
+//   // Reassign lastID value
+//   lastIndex = userID;
+// 	$("#addUser input").val("");
+// });
+
+// Update Data
+var updateID = 0;
+$('body').on('click', '.updateData', function() {
+    updateID = $(this).attr('data-id');
+	firebase.database().ref('nodes/' + updateID).on('value', function(snapshot) {
+		var values = snapshot.val();
+		var updateData = '<div class="form-group">\
+		    <label for="name" >Name</label>\
+		    <div >\
+		      <input id="name" type=text name=name value="'+values.name+'" required autofocus>\
+		    </div>\
+		  </div>\
+		  <div >\
+		    <label for="node_type" >Category</label>\
+		    <div >\
+		      <input id="node_type" type=text name=node_type value="'+values.node_type+'" required autofocus>\
+		    </div>\
+		  </div>';
+
+		  $('#updateBody').html(updateData);
+	});
+});
+
+
+$('.updateUser').on('click', function() {
+    // Ready();
+    // firebase.database().ref('nodes/'+updateID).update({
+    //     name : values[0].value,
+	//     node_type : values[1].value
+    // });
+	var values = $(".users-update-record-model").serializeArray();
+	var postData = {
+	    name : values[0].value,
+	    node_type : values[1].value
+	};
+    // var newnodeskey = firebase.database().ref().child('nodes').push().key;
+	var updates = {};
+    updates['/nodes/' + updateID ] = postData;
+    // updates['/nodes/' + updateID +'/'+ newnodeskey] = postData;
+    // firebase.database().ref('nodes/'+updateID).set({
+    //     name: values[0].value,
+    //     node_type: values[1].value
+    // });
+
+    firebase.database().ref().update(updates);  
+	// $('body').find('.users-update-record-model').find( "input" ).set();
+
+	$("#update-modal").modal('hide');
+    });
+
+
+// Remove Data
+$("body").on('click', '.removeData', function() {
+	var id = $(this).attr('data-id');
+	$('body').find('.users-remove-record-model').append('<input name="id" type="hidden" value="'+ id +'">');
+});
+
+$('.deleteMatchRecord').on('click', function(){
+	var values = $(".users-remove-record-model").serializeArray();
+	var id = values[0].value;
+	firebase.database().ref('nodes/' + id).remove();
+    $('body').find('.users-remove-record-model').find( "input" ).remove();
+	$("#remove-modal").modal('hide');
+});
+$('.remove-data-from-delete-form').click(function() {
+	$('body').find('.users-remove-record-model').find( "input" ).remove();
+});
+</script>
+    
 </body>
 
 </html>

@@ -55,6 +55,10 @@ Route::get('/university_table_page', array('as' => 'university_table_page', func
     return view('university_table_page');
 }));
 
+Route::get('/university_relationshiptable_page', array('as' => 'university_relationshiptable_page', function(){
+    return view('university_relationshiptable_page');
+}));
+
 
 Auth::routes();
 
@@ -63,4 +67,5 @@ Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'inde
 // Route::get('/university_table_page', 'App\Http\Controllers\FirebaseController@readfirebase');
 // Route::get('/editData', 'App\Http\Controllers\FirebaseController@editData');
 Route::post('/university_table_page', 'App\Http\Controllers\FirebaseController@addData');
+Route::post('/university_relationshiptable_page', 'App\Http\Controllers\FirebaseController@addRelationship');
 

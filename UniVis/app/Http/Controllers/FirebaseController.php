@@ -86,6 +86,37 @@ class FirebaseController extends Controller
         return view ('university_table_page',compact('all_data'));
     }
 
+    public function addRelationship(Request $request){
+        $serviceAccount = ServiceAccount::fromJsonFile(__DIR__ . '/fyp_Firebase.json');
+        $firebase = (new Factory)
+            ->withServiceAccount($serviceAccount)
+            ->withDatabaseUri('https://fyp-univis.firebaseio.com/')
+            ->create();
+
+        $database = $firebase->getDatabase();
+
+        $ref = $database->getReference('edges');
+
+        $source = $request->source;
+        $target = $request->target;
+
+        $key = $ref->push()->getKey();
+
+        $ref->getChild($key)->set([
+            'source'=>$source,
+            'target'=>$target
+        ]);
+
+        $adata = $ref->getValue();
+
+        foreach ($adata as $data){
+            $all_data[] = $data;
+        }
+
+        return view ('university_relationshiptable_page',compact('all_data'));
+    }
+
+
     public function saveToken(Request $request)
     {
         auth()->user()->update(['device_token'=>$request->token]);

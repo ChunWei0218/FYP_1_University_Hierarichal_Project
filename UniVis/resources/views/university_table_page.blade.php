@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-md-4 text-right">
                                 <a type="button" class="btn btn-primary ml-3" data-toggle="modal" data-target="#modal-default">Add Data</a>
-                                <a type="button" class="btn btn-danger" data-toggle="">Add Relationship</a>
+                                <a type="button" class="btn btn-danger" href="{{ url('/university_relationshiptable_page')}}" >Add Relationship</a>
                            
                         </div>
                     </div>

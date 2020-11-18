@@ -5,6 +5,11 @@
     height: 700px;
 } */
 
+body {
+    /* background-image: url("backgroundimg.jpg"); */
+    background-color: #D8D8D8;
+}
+
 .ggraph {
     float: left;
     margin-left: 20px;

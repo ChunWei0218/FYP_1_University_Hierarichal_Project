@@ -9,7 +9,7 @@ require.config({
         jquery: 'bower_components/jquery/dist/jquery.min',
         underscore: 'bower_components/underscore/underscore-min',
 
-        forceView: 'js/force-view',
+        forceView: 'js/uni-view',
         myView: 'js/my-backbone-view',
         myModel: 'js/my-backbone-model',
         dbaas: 'js/dbaas',

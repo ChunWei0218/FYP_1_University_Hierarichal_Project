@@ -1,6 +1,6 @@
 // http://bl.ocks.org/benzguo/4370043
 define(['d3', 'jquery', 'backbone'], function(d3, $, Backbone) {
-    var width = 1920,
+    var width = 1170,
         height = 700,
         fill = d3.scale.category20(),
         outer,
@@ -86,11 +86,11 @@ define(['d3', 'jquery', 'backbone'], function(d3, $, Backbone) {
         if (!mousedown_node) return;
 
         // update drag line
-        drag_line
-            .attr("x1", mousedown_node.x)
-            .attr("y1", mousedown_node.y)
-            .attr("x2", d3.svg.mouse(this)[0])
-            .attr("y2", d3.svg.mouse(this)[1]);
+        // drag_line
+        //     .attr("x1", mousedown_node.x)
+        //     .attr("y1", mousedown_node.y)
+        //     .attr("x2", d3.svg.mouse(this)[0])
+        //     .attr("y2", d3.svg.mouse(this)[1]);
 
     }
 
@@ -99,7 +99,6 @@ define(['d3', 'jquery', 'backbone'], function(d3, $, Backbone) {
             // hide drag line
             drag_line
                 .attr("class", "drag_line_hidden")
-
 
             redraw();
         }
@@ -195,17 +194,17 @@ define(['d3', 'jquery', 'backbone'], function(d3, $, Backbone) {
             .on("mouseup",
                 function(d) {
                     if (mousedown_node) {
-                        mouseup_node = d;
-                        if (mouseup_node == mousedown_node) { resetMouseVars(); return; }
+                        // mouseup_node = d;
+                        // if (mouseup_node == mousedown_node) { resetMouseVars(); return; }
 
-                        // add link
-                        var link = { source: mousedown_node, target: mouseup_node };
-                        links.push(link);
-                        ForceViewEventChannel.trigger('link-added', link);
+                        // // add link
+                        // var link = { source: mousedown_node, target: mouseup_node };
+                        // links.push(link);
+                        // ForceViewEventChannel.trigger('link-added', link);
 
-                        // select new link
-                        selected_link = link;
-                        selected_node = null;
+                        // // select new link
+                        // selected_link = link;
+                        // selected_node = null;
 
                         // enable zoom
                         vis.call(d3.behavior.zoom().on("zoom"), rescale);
@@ -254,16 +253,16 @@ define(['d3', 'jquery', 'backbone'], function(d3, $, Backbone) {
             case 8: // backspace
             case 46:
                 { // delete
-                    if (selected_node) {
-                        nodes.splice(nodes.indexOf(selected_node), 1);
-                        spliceLinksForNode(selected_node);
-                        ForceViewEventChannel.trigger('node-removed', selected_node);
-                    } else if (selected_link) {
-                        links.splice(links.indexOf(selected_link), 1);
-                        ForceViewEventChannel.trigger('link-removed', selected_link);
-                    }
-                    selected_link = null;
-                    selected_node = null;
+                    // if (selected_node) {
+                    //     nodes.splice(nodes.indexOf(selected_node), 1);
+                    //     spliceLinksForNode(selected_node);
+                    //     ForceViewEventChannel.trigger('node-removed', selected_node);
+                    // } else if (selected_link) {
+                    //     links.splice(links.indexOf(selected_link), 1);
+                    //     ForceViewEventChannel.trigger('link-removed', selected_link);
+                    // }
+                    // selected_link = null;
+                    // selected_node = null;
                     redraw();
                     break;
                 }
@@ -318,6 +317,10 @@ define(['d3', 'jquery', 'backbone'], function(d3, $, Backbone) {
         var selected_node = searchNode(node);
         if (!selected_node) {
             nodes.push(node);
+            redraw();
+        }
+        if (selected_node) {
+            $.extend(selected_node, node);
             redraw();
         }
     });

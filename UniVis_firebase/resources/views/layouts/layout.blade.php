@@ -20,11 +20,11 @@
     <!-- Your custom styles (optional) -->
     <link href="/css/style.min.css" rel="stylesheet">
     <style type="text/css">
-        @media (min-width: 800px) and (max-width: 850px) {
-            .navbar:not(.top-nav-collapse) {
-                background: #1C2331 !important;
-            }
+    @media (min-width: 800px) and (max-width: 850px) {
+        .navbar:not(.top-nav-collapse) {
+            background: #1C2331 !important;
         }
+    }
     </style>
 </head>
 
@@ -40,7 +40,8 @@
             </a>
 
             <!-- Collapse -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -50,13 +51,8 @@
                 <!-- Left -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                    <a class="nav-link" href="{{ route('university')}}">
+                        <a class="nav-link" href="{{ route('university')}}">
                             Universities
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="{{ url('/university_table_page')}}">
-                            Edit Database
                         </a>
                     </li>
                     <li class="nav-item ">
@@ -79,18 +75,20 @@
                     </li>
                     @endif
                     @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Edit</a>
+                    <li class="nav navbar-nav ">
+                        <a class="nav-link" href="{{ route('university_editpage')}}">
+                            Edit Database
+                        </a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user"></i>
                             {{ Auth::user()->name }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('account')}}">My account</a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
@@ -175,8 +173,8 @@
     <script type="text/javascript" src="/js/index.js"></script>
     <!-- Initializations -->
     <script type="text/javascript">
-        // Animations initialization
-        new WOW().init();
+    // Animations initialization
+    new WOW().init();
     </script>
 </body>
 

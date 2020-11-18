@@ -100,24 +100,7 @@ define(['d3', 'jquery', 'backbone'], function(d3, $, Backbone) {
             drag_line
                 .attr("class", "drag_line_hidden")
 
-            if (!mouseup_node) {
-                // add node
-                var point = d3.mouse(this),
-                    node = { x: point[0], y: point[1] },
-                    n = nodes.push(node),
-                    link = { source: mousedown_node, target: node };
 
-                // select new node
-                selected_node = node;
-                selected_link = null;
-
-                // add link to mousedown node
-                links.push(link);
-                ForceViewEventChannel.trigger('node-and-link-added', {
-                    node: node,
-                    link: link
-                });
-            }
 
             redraw();
         }

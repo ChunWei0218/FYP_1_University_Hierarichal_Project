@@ -35,8 +35,8 @@ Route::get('/feedback', array('as' => 'feedback', function(){
     return view('feedback');
 }));
 
-Route::get('/university_page', array('as' => 'university', function(){
-    return view('university_page');
+Route::get('/university_viewpage', array('as' => 'university', function(){
+    return view('university_viewpage');
 }));
 
 Route::get('/account_page', array('as' => 'account', function(){
@@ -54,6 +54,9 @@ Route::get('/university_code', array('as' => 'university_code', function(){
 Route::get('/university_table_page', array('as' => 'university_table_page', function(){
     return view('university_table_page');
 }));
+Route::get('/university_page', array('as' => 'university_editpage', function(){
+    return view('university_page');
+}));
 
 Route::get('/university_relationshiptable_page', array('as' => 'university_relationshiptable_page', function(){
     return view('university_relationshiptable_page');
@@ -66,6 +69,7 @@ Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'inde
 
 // Route::get('/university_table_page', 'App\Http\Controllers\FirebaseController@readfirebase');
 Route::post('/university_table_page', 'App\Http\Controllers\FirebaseController@addData');
+Route::post('/university_page', 'App\Http\Controllers\FirebaseController@addData');
 Route::post('/university_relationshiptable_page', 'App\Http\Controllers\FirebaseController@addRelationship');
 // Route::post('/university_table_page', 'App\Http\Controllers\FirebaseController@updateData');
 

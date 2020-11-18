@@ -11,7 +11,7 @@
     <!-- bootstrap and custom link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css">
-    <link href="/css/force_view.css" rel="stylesheet">
+    <link href="/css/uniedit_view.css" rel="stylesheet">
 </head>
 
 <body>
@@ -28,11 +28,6 @@
                 <li class="nav navbar-nav ">
                     <a class="nav-link" href="{{ route('university')}}">
                         Universities
-                    </a>
-                </li>
-                <li class="nav navbar-nav ">
-                    <a class="nav-link" href="{{ url('/university_table_page')}}">
-                        Edit Database
                     </a>
                 </li>
                 <li class="nav navbar-nav ">
@@ -56,18 +51,20 @@
                 </li>
                 @endif
                 @else
-                <li class="nav navbar-nav">
-                    <a class="nav-link" href="">Edit</a>
+                <li class="nav navbar-nav ">
+                    <a class="nav-link" href="{{ route('university_editpage')}}">
+                        Edit Database
+                    </a>
                 </li>
 
                 <li class="nav navbar-nav dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user"></i>
                         {{ Auth::user()->name }}
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('account')}}">My account</a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -104,9 +101,9 @@
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('#example').DataTable();
-        });
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
     </script>
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>

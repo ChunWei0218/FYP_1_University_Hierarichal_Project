@@ -16,7 +16,7 @@
                 <strong>We provide the all the information you need about employees in Universities including the departments, projects. </strong>
             </p>
 
-            <a href="http://univis.me:8080" class="btn btn-outline-white btn-lg">Search
+            <a href="{{ route('university')}}" class="btn btn-outline-white btn-lg">Search
             </a>
         </div>
         <!-- Content -->

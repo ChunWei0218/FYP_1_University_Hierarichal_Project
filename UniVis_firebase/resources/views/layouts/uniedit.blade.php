@@ -24,7 +24,8 @@
             </a>
 
             <!-- Collapse -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -36,11 +37,6 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="{{ route('university')}}">
                             Universities
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="{{ url('/university_table_page')}}">
-                            Edit Database
                         </a>
                     </li>
                     <li class="nav-item ">
@@ -63,18 +59,20 @@
                     </li>
                     @endif
                     @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Edit</a>
+                    <li class="nav navbar-nav ">
+                        <a class="nav-link" href="{{ route('university_editpage')}}">
+                            Edit Database
+                        </a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user"></i>
                             {{ Auth::user()->name }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('account')}}">My account</a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
@@ -100,8 +98,12 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="/js/jquery-ui.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
@@ -116,42 +118,46 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
     <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyAJiPNFCPgcyMwJ74kTIvbloDpFjtoNMRw",
-            authDomain: "fyp-univis.firebaseapp.com",
-            databaseURL: "https://fyp-univis.firebaseio.com",
-            projectId: "fyp-univis",
-            storageBucket: "fyp-univis.appspot.com",
-            messagingSenderId: "1017413433548",
-            appId: "1:1017413433548:web:80905c4a434581790aaa69"
-        };
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAJiPNFCPgcyMwJ74kTIvbloDpFjtoNMRw",
+        authDomain: "fyp-univis.firebaseapp.com",
+        databaseURL: "https://fyp-univis.firebaseio.com",
+        projectId: "fyp-univis",
+        storageBucket: "fyp-univis.appspot.com",
+        messagingSenderId: "1017413433548",
+        appId: "1:1017413433548:web:80905c4a434581790aaa69"
+    };
 
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig)
-        var database = firebase.database();
-        var lastIndex = 0;
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig)
+    var database = firebase.database();
+    var lastIndex = 0;
 
-        // Get Data
-        firebase.database().ref('nodes/').on('value', function(snapshot) {
-            var value = snapshot.val();
-            var htmls = [];
-            $.each(value, function(index, value) {
-                if (value) {
-                    htmls.push('<tr>\
+    // Get Data
+    firebase.database().ref('nodes/').on('value', function(snapshot) {
+        var value = snapshot.val();
+        var htmls = [];
+        $.each(value, function(index, value) {
+            if (value) {
+                htmls.push('<tr>\
                     <td>' + value.label + '</td>\
-                    <td>' + value.category + '</td>\
-                    <td><a type="button" data-toggle="modal" data-target="#update-modal" class="btn btn-primary ml-3 updateData" data-id="' + index + '">Update</a>\
-                    <a type="button" data-toggle="modal" data-target="#remove-modal" class="btn btn-danger removeData" data-id="' + index + '">Delete</a></td>\
+                    <td>' + value.category +
+                    '</td>\
+                    <td><a type="button" data-toggle="modal" data-target="#update-modal" class="btn btn-primary ml-3 updateData" data-id="' +
+                    index +
+                    '">Update</a>\
+                    <a type="button" data-toggle="modal" data-target="#remove-modal" class="btn btn-danger removeData" data-id="' +
+                    index + '">Delete</a></td>\
                 </tr>');
-                }
-                lastIndex = index;
-            });
-            $('#tbody').html(htmls);
-            // $("#submitUser").removeClass('desabled');
+            }
+            lastIndex = index;
         });
+        $('#tbody').html(htmls);
+        // $("#submitUser").removeClass('desabled');
+    });
 
-        // Add Data
+    // Add Data
     //     $('#submitNodes').on('click', function () {
     //     var values = $("#addCustomer").serializeArray();
     //     var name = values[0].value;
@@ -167,11 +173,11 @@
     //     $("#addCustomer input").val("");
     // });
 
-        var updateID = 0;
-    $('body').on('click', '.updateData', function () {
+    var updateID = 0;
+    $('body').on('click', '.updateData', function() {
         updateID = $(this).attr('data-id');
-        
-        firebase.database().ref('nodes/' + updateID).on('value', function (snapshot) {
+
+        firebase.database().ref('nodes/' + updateID).on('value', function(snapshot) {
             var values = snapshot.val();
             var updateData = '<div class="form-group">\
 		        <label for="label" class="col-md-12 col-form-label">Label</label>\
@@ -186,12 +192,13 @@
 		        </div>\
 		    </div>';
             $('#updateBody').html(updateData);
-            $('body').find('.users-update-record-model').append('<input name="id" type="hidden" value="' + updateID + '">');
+            $('body').find('.users-update-record-model').append(
+                '<input name="id" type="hidden" value="' + updateID + '">');
 
         });
     });
 
-    $('.updateUserRecord').on('click', function () {
+    $('.updateUserRecord').on('click', function() {
         var values = $(".users-update-record-model").serializeArray();
         var postData = {
             label: values[0].value,
@@ -208,22 +215,23 @@
     });
 
 
-        // Remove Data
-        $("body").on('click', '.removeData', function() {
-            var id = $(this).attr('data-id');
-            $('body').find('.users-remove-record-model').append('<input name="id" type="hidden" value="' + id + '">');
-        });
+    // Remove Data
+    $("body").on('click', '.removeData', function() {
+        var id = $(this).attr('data-id');
+        $('body').find('.users-remove-record-model').append('<input name="id" type="hidden" value="' + id +
+            '">');
+    });
 
-        $('.deleteMatchRecord').on('click', function() {
-            var values = $(".users-remove-record-model").serializeArray();
-            var id = values[0].value;
-            firebase.database().ref('nodes/' + id).remove();
-            $('body').find('.users-remove-record-model').find("input").remove();
-            $("#remove-modal").modal('hide');
-        });
-        // $('.remove-data-from-delete-form').click(function() {
-        //     $('body').find('.users-remove-record-model').find("input").remove();
-        // });
+    $('.deleteMatchRecord').on('click', function() {
+        var values = $(".users-remove-record-model").serializeArray();
+        var id = values[0].value;
+        firebase.database().ref('nodes/' + id).remove();
+        $('body').find('.users-remove-record-model').find("input").remove();
+        $("#remove-modal").modal('hide');
+    });
+    // $('.remove-data-from-delete-form').click(function() {
+    //     $('body').find('.users-remove-record-model').find("input").remove();
+    // });
     </script>
 
 </body>

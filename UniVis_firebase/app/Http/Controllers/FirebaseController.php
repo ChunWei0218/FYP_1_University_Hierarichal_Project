@@ -64,7 +64,7 @@ class FirebaseController extends Controller
             $all_data[] = $data;
         }
 
-        return view ('university_table_page',compact('all_data'));
+        return view ('university_page',compact('all_data'));
     }
 
     public function addRelationship(Request $request){

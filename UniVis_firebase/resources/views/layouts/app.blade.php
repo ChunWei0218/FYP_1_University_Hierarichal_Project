@@ -65,8 +65,10 @@
                         </li>
                         @endif
                         @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Edit</a>
+                        <li class="nav navbar-nav ">
+                            <a class="nav-link" href="{{ route('university_editpage')}}">
+                                Edit Database
+                            </a>
                         </li>
 
                         <li class="nav-item dropdown">

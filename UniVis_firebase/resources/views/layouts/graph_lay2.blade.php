@@ -46,9 +46,6 @@
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
                 @if (Route::has('register'))
-                <li class="nav navbar-nav">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
                 @endif
                 @else
                 <li class="nav navbar-nav ">
@@ -58,15 +55,13 @@
                 </li>
 
                 <li class="nav navbar-nav dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user"></i>
                         {{ Auth::user()->name }}
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
 
@@ -75,12 +70,11 @@
                         </form>
                     </div>
                 </li>
-
                 @endguest
             </ul>
         </div>
     </nav>
-    <!-- Navbar -->
+
 
     @yield('content')
 
@@ -100,11 +94,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $('#example').DataTable();
-    });
-    </script>
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
     <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->

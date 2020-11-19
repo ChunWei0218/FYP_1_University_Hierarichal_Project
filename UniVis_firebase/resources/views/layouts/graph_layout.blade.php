@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css">
     <link href="/css/uniedit_view.css" rel="stylesheet">
+        <!-- Your custom styles (optional) -->
+        <link href="/css/style.min.css" rel="stylesheet">
+    <style type="text/css">
+    @media (min-width: 800px) and (max-width: 850px) {
+        .navbar:not(.top-nav-collapse) {
+            background: #1C2331 !important;
+        }
+    }
+    </style>
 </head>
 
 <body>
@@ -21,11 +30,11 @@
         <div class="container-fluid navdiv">
             <div class="navbar-header">
                 <a class="navbar-brand" href="{{ route('index')}}">
-                    <img src="img/illogical%20ones" width="72px">
+                    <img src="img/illogical%20ones" width="80px">
                 </a>
             </div>
             <ul class="navbar-nav ml-auto navbody">
-                <li class="nav navbar-nav ">
+                <li class="nav navbar-nav  ">
                     <a class="nav-link" href="{{ route('university')}}">
                         Universities
                     </a>
@@ -81,20 +90,7 @@
 
     @yield('content')
 
-    <!-- SCRIPTS -->
-    <!-- Bootstrap tooltips -->
-    <!-- <script type="text/javascript" src="js/popper.min.js"></script> -->
-    <!-- Bootstrap core JavaScript -->
-    <!-- <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
-    <!-- MDB core JavaScript -->
-    <!-- <script type="text/javascript" src="MDB_3.4.1/js/mdb.min.js"></script> -->
-    <!-- <script type="text/javascript" src="js/mdb.min.js"></script> -->
-
-    <!-- JQuery -->
-    <!-- <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script> -->
-    <!-- <script type="text/javascript" src="MDB_3.4.1/js/jquery-3.5.1.min.js"></script> -->
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
@@ -114,6 +110,12 @@
     <!-- <script src="/js/jquery.tablesorter.widgets.js"></script> -->
     <script data-main="/js/edit" src="/bower_components/requirejs-bower/require.js"></script>
 
+    <script type="text/javascript" src="/js/index.js"></script>
+    <!-- Initializations -->
+    <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+    </script>
 </body>
 
 </html>

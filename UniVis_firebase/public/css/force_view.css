@@ -65,7 +65,7 @@
 }
 
 .navbar {
-    min-height: 80px !important
+    min-height: 82px !important
 }
 
 .navdiv {
@@ -73,11 +73,15 @@
 }
 
 .navbody {
-    padding-left: 550px;
+    padding-left: 580px;
 }
 
 .table-responsive {
     max-height: 700px;
+}
+
+.navbody li a {
+    font-size: 110%;
 }
 
 

@@ -1,7 +1,7 @@
 // http://bl.ocks.org/benzguo/4370043
 define(['d3', 'jquery', 'backbone'], function(d3, $, Backbone) {
     var width = 1170,
-        height = 700,
+        height = 800,
         fill = d3.scale.category20(),
         outer,
         vis,

@@ -8,6 +8,7 @@
 <div class="container gtable">
     <div class="modal-content">
         <div class="modal-body table-responsive">
+            <input class="form-control" id="SearchData" type="text" placeholder="Search..">
             <table class="table table-bordered">
                 <thead>
                     <tr>

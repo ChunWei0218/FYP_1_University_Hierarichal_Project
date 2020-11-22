@@ -116,6 +116,18 @@
     // Animations initialization
     new WOW().init();
     </script>
+
+    <!-- Search bar -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#SearchData").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#tbody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+            });
+        });
+    </script>
 </body>
 
 </html>

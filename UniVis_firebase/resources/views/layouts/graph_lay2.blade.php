@@ -106,6 +106,17 @@
     <!-- <script src="/js/jquery.tablesorter.widgets.js"></script> -->
     <script data-main="/js/main" src="/bower_components/requirejs-bower/require.js"></script>
 
+    <!-- Search bar -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#SearchData").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#tbody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+            });
+        });
+    </script>
 </body>
 
 </html>

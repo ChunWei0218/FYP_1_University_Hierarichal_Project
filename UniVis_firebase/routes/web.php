@@ -73,5 +73,6 @@ Route::post('/university_page', 'App\Http\Controllers\FirebaseController@addData
 Route::post('/university_relationshiptable_page', 'App\Http\Controllers\FirebaseController@addRelationship');
 // Route::post('/university_table_page', 'App\Http\Controllers\FirebaseController@updateData');
 
+Route::get('/send-email',[App\Http\Controllers\SendEmailController::class,'sendEmail']);
 
 

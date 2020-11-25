@@ -8,27 +8,20 @@ use App\Mail\SendMail;
 
 class SendEmailController extends Controller
 {
-    function index()
-    {
-     return view('send_email');
-    }
+    
 
-    function send(Request $request)
+    function sendEmail(Request $request)
     {
-     $this->validate($request, [
-      'name'     =>  'required',
-      'email'  =>  'required|email',
-      'subject' => 'required',
-      'message' =>  'required'
-     ]);
 
         $data = array(
             'name'      =>  $request->name,
-            'message'   =>   $request->message
+            'email'     =>  $request->email,
+            'subject'   =>  $request->subject,
+            'message'   =>  $request->message
         );
 
-     Mail::to('illogicalones1234@gmail.com')->send(new SendMail($data));
-     return back()->with('success', 'Thanks for contacting us!');
+     Mail::to("illogicalones1234@gmail.com")->send(new SendMail($data));
+     return "Email sent";
 
     }
 }

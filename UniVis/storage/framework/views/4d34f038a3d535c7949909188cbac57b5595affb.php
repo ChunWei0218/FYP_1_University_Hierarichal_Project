@@ -20,11 +20,11 @@
     <!-- Your custom styles (optional) -->
     <link href="/css/style.min.css" rel="stylesheet">
     <style type="text/css">
-    @media (min-width: 800px) and (max-width: 850px) {
-        .navbar:not(.top-nav-collapse) {
-            background: #1C2331 !important;
+        @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #1C2331 !important;
+            }
         }
-    }
     </style>
 </head>
 
@@ -35,13 +35,12 @@
         <div class="container">
 
             <!-- Brand -->
-            <a class="navbar-brand" href="{{ route('index')}}">
+            <a class="navbar-brand" href="<?php echo e(route('index')); ?>">
                 <img src="/img/illogical%20ones" width="80px">
             </a>
 
             <!-- Collapse -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -51,52 +50,60 @@
                 <!-- Left -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{ route('university')}}">
+                    <a class="nav-link" href="<?php echo e(route('university')); ?>">
                             Universities
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{ route('feedback')}}">
+                        <a class="nav-link" href="<?php echo e(url('/university_table_page')); ?>">
+                            Edit Database
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="<?php echo e(route('feedback')); ?>">
                             Feedback
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{ route('faq')}}">
+                        <a class="nav-link" href="<?php echo e(route('faq')); ?>">
                             FAQ
                         </a>
                     </li>
-                    @guest
+                    <?php if(auth()->guard()->guest()): ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
                     </li>
-                    @if (Route::has('register'))
-                    @endif
-                    @else
-                    <li class="nav navbar-nav ">
-                        <a class="nav-link" href="{{ route('university_editpage')}}">
-                            Edit Database
-                        </a>
+                    <?php if(Route::has('register')): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
+                    </li>
+                    <?php endif; ?>
+                    <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Edit</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user"></i>
-                            {{ Auth::user()->name }}
+                            <?php echo e(Auth::user()->name); ?>
+
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <a class="dropdown-item" href="<?php echo e(route('account')); ?>">My account</a>
+                            <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                <?php echo e(__('Logout')); ?>
+
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
+                            <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
+                                <?php echo csrf_field(); ?>
                             </form>
                         </div>
                     </li>
-                    @endguest
+                    <?php endif; ?>
                 </ul>
 
             </div>
@@ -105,7 +112,7 @@
     </nav>
     <!-- Navbar -->
 
-    @yield('content')
+    <?php echo $__env->yieldContent('content'); ?>
 
     <!--Footer-->
     <footer class="page-footer text-center font-small mt-4 wow fadeIn">
@@ -170,9 +177,9 @@
     <script type="text/javascript" src="/js/index.js"></script>
     <!-- Initializations -->
     <script type="text/javascript">
-    // Animations initialization
-    new WOW().init();
+        // Animations initialization
+        new WOW().init();
     </script>
 </body>
 
-</html>
+</html><?php /**PATH N:\XAMPP\htdocs\UniVis2\resources\views/layouts/layout.blade.php ENDPATH**/ ?>

@@ -1,9 +1,0 @@
-{
-    "firebase": "fyp-univis",
-    "public": ".",
-    "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-    ]
-}
